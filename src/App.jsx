@@ -19,10 +19,9 @@ function App() {
           <Route path="/contact" Component={ContactUs} />
           <Route path="/about" Component={About} />
         </Route>
-        {/* <Route path="*" Component={NotFoundPage} /> */}
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App
+export default App;
