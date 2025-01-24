@@ -117,3 +117,34 @@ In App.jsx use global context
 <GlobalProvider>
   /* Routing o altri componenti children */
  </GlobalProvider>
+
+
+
+ #scripts per branch
+
+ Orsouene: 
+ 1. git fetch origin
+git checkout 2-header-and-footer
+
+Ele:
+1. git fetch origin
+git checkout 4-review-card
+
+2. git fetch origin
+git checkout 1-routing
+
+Mel :  
+1.git fetch origin
+
+2.git checkout 3-card-and-book-details
+
+3. git fetch origin
+git checkout 7-homepage-lista-dei-libri
+
+Fabio: 
+1. git fetch origin
+git checkout 5-form-component
+
+2. git fetch origin
+git checkout 6-pages-about-e-contact-us
+
