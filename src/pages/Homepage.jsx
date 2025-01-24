@@ -1,9 +1,11 @@
-export default function Homepage() {
-    return (
-        <>
-            <h1>Sono Homepage</h1>
-            <p>qui vedremo tutti i libri</p>
-        </>
+import BookList from "../components/BookList";
 
-    )
-}
+const HomePage = () => {
+    return (
+        <div>
+            <BookList /> {/*qui mostriamo la lista dei libri */}
+        </div>
+    );
+};
+
+export default HomePage;
