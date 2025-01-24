@@ -16,6 +16,11 @@ function AddReviews() {
         setFormData({ ...formData, [e.target.name]: value });
     }
 
-    
+    function AddReview(e) {
+        e.preventDefault();
+        setFormData(newReview);
+    }
 }
+
+export default AddReviews;
 
