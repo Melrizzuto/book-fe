@@ -18,7 +18,7 @@ function Card({ book }) {
                     </p>
                     <p className="card-text">
                         {/* Aggiungo una breve descrizione del libro per fornire più informazioni. */}
-                        {book.description}
+                        {book.abstract}
                     </p>
                     {/* Creo un link per vedere più dettagli del libro, anche se al momento non ha una destinazione. */}
                     <a href="#" className="btn btn-primary">

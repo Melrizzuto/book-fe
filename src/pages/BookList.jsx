@@ -1,15 +1,14 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 
-const BooksList = () => {
+function BooksList() {
     //  stato per i libri e per il caricamento
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
 
     // fn per recuperare i dati dal server
-    const fetchBooks = () => {
+    function fetchBooks() {
         // effettuo una richiesta GET per ottenere i dati dal server
         axios.get("http://localhost:3000/books")
             .then((response) => {

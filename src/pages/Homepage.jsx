@@ -1,6 +1,6 @@
-import BookList from "../components/BookList";
+import BookList from "../pages/BookList";
 
-const HomePage = () => {
+function HomePage() {
     return (
         <div>
             <BookList /> {/*qui mostriamo la lista dei libri */}
