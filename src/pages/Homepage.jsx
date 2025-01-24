@@ -1,4 +1,4 @@
-import BookList from "../components/BookList";
+import BookList from "../pages/BookList";
 
 const HomePage = () => {
     return (
