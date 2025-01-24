@@ -10,17 +10,17 @@ export default function Header() {
         </li>
 
         <li>
-          <NavLink to="/Book" className="myList major-mono-display-regular">
+          <NavLink to="/book" className="myList major-mono-display-regular">
             Book
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Contact" className="myList major-mono-display-regular">
+          <NavLink to="/contact" className="myList major-mono-display-regular">
             Contact us
           </NavLink>
         </li>
         <li>
-          <NavLink to="/About" className="myList major-mono-display-regular">
+          <NavLink to="/about" className="myList major-mono-display-regular">
             About
           </NavLink>
         </li>
