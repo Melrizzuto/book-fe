@@ -10,7 +10,7 @@ const BooksList = () => {
     // fn per recuperare i dati dal server
     const fetchBooks = () => {
         // effettuo una richiesta GET per ottenere i dati dal server
-        axios.get("http://localhost:5000/books")
+        axios.get("http://localhost:3000/books")
             .then((response) => {
                 // quando ottengo i dati, aggiorno lo stato dei libri
                 setBooks(response.data);
