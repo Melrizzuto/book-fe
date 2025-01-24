@@ -15,10 +15,7 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/ContactUs"
-            className="myList major-mono-display-regular"
-          >
+          <NavLink to="/Contact" className="myList major-mono-display-regular">
             Contact us
           </NavLink>
         </li>
