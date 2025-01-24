@@ -4,14 +4,8 @@ export default function Header() {
     <header>
       <ul className="nav d-flex justify-content-center gap-5  ">
         <li>
-          <NavLink to="/" className="myList major-mono-display-regular">
+          <NavLink to="/books" className="myList major-mono-display-regular">
             Homepage
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/book" className="myList major-mono-display-regular">
-            Book
           </NavLink>
         </li>
         <li>
@@ -22,6 +16,11 @@ export default function Header() {
         <li>
           <NavLink to="/about" className="myList major-mono-display-regular">
             About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/form" className="myList major-mono-display-regular">
+            Form
           </NavLink>
         </li>
       </ul>
