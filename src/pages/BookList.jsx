@@ -13,7 +13,7 @@ const BooksList = () => {
         axios.get("http://localhost:3000/books")
             .then((response) => {
                 // quando ottengo i dati, aggiorno lo stato dei libri
-                setBooks(response.data);
+                setBooks(response.data.results);
                 setLoading(false);
             })
             .catch((error) => {
