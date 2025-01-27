@@ -38,6 +38,7 @@ export default function BookDetails() {
             className="card-img-top imgDetails"
             alt={bookDetails.title}
           />
+
           <div className="card-body">
             <h5 className="card-title">{bookDetails.title}</h5>
             <p className="card-text">{bookDetails.abstract}</p>
