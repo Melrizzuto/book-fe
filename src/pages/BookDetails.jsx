@@ -7,6 +7,7 @@ import axios from "axios";
 export default function BookDetails() {
   const url = import.meta.env.VITE_API_URL;
   const endPoint = "books";
+  const imgUrl = "http://localhost:3000/images/";
   // useParams per ottenere l'ID del Book dalla URL
   const { id } = useParams();
   // useState per dichiarare una variabile di stato che conterrà il Book richiesto con il suo ID
@@ -33,7 +34,7 @@ export default function BookDetails() {
       {bookDetails && (
         <div className=" card CardDetails">
           <img
-            src={bookDetails.image}
+            src={`${imgUrl}${bookDetails.image}`}
             className="card-img-top imgDetails"
             alt={bookDetails.title}
           />
@@ -50,9 +51,7 @@ export default function BookDetails() {
                       gap: "10px",
                     }}
                   >
-                    <strong className="badge" style={{ fontSize: "1rem" }}>
-                      User :
-                    </strong>
+                    <strong className="DetailsBadge">User :</strong>
                     {review.name}
                   </p>
                   <p
@@ -62,9 +61,7 @@ export default function BookDetails() {
                       gap: "10px",
                     }}
                   >
-                    <strong className="badge" style={{ fontSize: "1rem" }}>
-                      Comment :{" "}
-                    </strong>
+                    <strong className="DetailsBadge">Comment :</strong>
                     {review.text}
                   </p>
                   <p
@@ -74,9 +71,7 @@ export default function BookDetails() {
                       gap: "10px",
                     }}
                   >
-                    <strong className="badge" style={{ fontSize: "1rem" }}>
-                      Vote :
-                    </strong>
+                    <strong className="DetailsBadge">Vote :</strong>
                     {review.vote}
                   </p>
                 </div>
