@@ -25,7 +25,7 @@ function AddReviews({ handleSubmit }) {
     }
 
     return (
-        <section className="my-4">
+        <section className="my-4 container">
             <h2>Aggiungi nuova recensione</h2>
             <form onSubmit={AddReview}>
                 <div className="mb-3">
