@@ -2,7 +2,7 @@
 .Header {
   display: flex;
   max-width: 800px;
-  background: white;
+  background:#9191916b;
   margin: 50px auto;
   border-radius: 30px;
   height: 50px;
