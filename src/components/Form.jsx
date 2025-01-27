@@ -66,6 +66,8 @@ function AddReviews({ handleSubmit }) {
                         type="number"
                         className="form-control"
                         id="vote"
+                        min="0"
+                        max="10"
                         value={formData.vote}
                         onChange={handleInput}
                         name="vote"
