@@ -19,9 +19,8 @@ function App() {
         <Routes>
           <Route path="/" Component={DefaultLayout}>
             <Route index Component={HomePage} />
-            <Route path="/books" Component={HomePage}>
-              <Route path=":id" Component={BookDetails} />
-            </Route>
+            <Route path="/books" Component={HomePage} />
+            <Route path="/books/:id" Component={BookDetails} />
             <Route path="/form" Component={Form} />
             <Route path="/contact" Component={ContactUs} />
             <Route path="/about" Component={About} />
@@ -32,9 +31,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </GlobalProvider>
-
-
   );
 }
 
-export default App
+export default App;

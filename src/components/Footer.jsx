@@ -1,5 +1,5 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import styles from './Footer.module.css'; // Importa il CSS Module
+import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
@@ -66,7 +66,7 @@ export default function Footer() {
             <div className="col-lg-9 m-auto">
               <div className="row">
                 <div className="col-lg-4 col-6 mt-4">
-                  <p className="text-uppercase font-weight-bold">BoolBooks</p>
+                  <p className="text-uppercase font-weight-bold ">BoolBooks</p>
                   <ul className="navbar-nav">
                     <li className="nav-item">
                       <a
