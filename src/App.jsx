@@ -9,6 +9,7 @@ import ContactUs from "./pages/ContactUs";
 import About from "./pages/About";
 
 
+
 function App() {
   return (
     <GlobalProvider>
@@ -26,7 +27,9 @@ function App() {
         </Routes>
       </BrowserRouter>
     </GlobalProvider>
+
+
   );
 }
 
-export default App;
+export default App
