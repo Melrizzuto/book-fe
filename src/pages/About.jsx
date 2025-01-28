@@ -185,7 +185,7 @@ export default function About() {
             </p>
           </div>
         </h1>
-        {/* Orsouene elaouizeb*/}
+        {/* Orsouene Elaouizeb */}
         <h1 className="my-3 container">
           <div class="Aboutcard">
             <div class="img">
