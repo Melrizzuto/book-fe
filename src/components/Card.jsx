@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 function Card({ book }) {
     // url completo dell'immagine
-    const imageUrl = `http://localhost:3000/images/${book.image}`;
+    // const imageUrl = `http://localhost:3000/images/${book.image}`;
+    const imgUrl = "http://localhost:3000/images/" + book.image;
 
     return (
         // La card è strutturata in una colonna di Bootstrap con un margine inferiore.
@@ -10,7 +11,7 @@ function Card({ book }) {
             <div className="card h-100">
                 {/* Inserisco un'immagine del libro, usando l'URL passato dalla prop 'book'. */}
                 <img
-                    src={imageUrl}
+                    src={`${imgUrl}`}
                     className="card-img-top"
                     alt={book.title} // Aggiungo il titolo come alt per l'immagine per l'accessibilità.
                 />
