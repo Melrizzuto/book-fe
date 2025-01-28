@@ -8,7 +8,9 @@ import Form from "./components/Form";
 import ContactUs from "./pages/ContactUs";
 import About from "./pages/About";
 
-
+import LogInPage from "./pages/LogInPage";
+import RegisterPage from "./pages/RegisterPage";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -20,10 +22,16 @@ function App() {
             <Route path="books">
               <Route path=":id" Component={BookDetails} />
             </Route>
-            <Route path="/form" Component={Form} />
-            <Route path="/contact" Component={ContactUs} />
-            <Route path="/about" Component={About} />
-          </Route>
+          <Route path="/form" Component={Form} />
+          <Route path="/contact" Component={ContactUs} />
+          <Route path="/about" Component={About} />
+          <Route path="/login" Component={LogInPage} />
+          <Route path="/register" Component={RegisterPage} />
+          <Route path="/NotFound" Component={NotFound} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+
         </Routes>
       </BrowserRouter>
     </GlobalProvider>
