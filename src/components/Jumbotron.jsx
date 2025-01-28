@@ -1,13 +1,11 @@
-import { Link } from 'react-router-dom';
-
-export default function Jumbotron() {
+export default function Jumbotron({ onDiscoverMore }) {
     return (
         <div
             className="hero hero-wave has-overlap-img has-overlap-img-with-text"
             style={{
                 backgroundColor: "rgb(181, 198, 172)",
-                height: "100vh", // Aggiungi l'altezza della viewport
-                minHeight: "100vh" // Garantisce che non diventi più piccolo di una finestra
+                height: "100vh",
+                minHeight: "100vh"
             }}
         >
             <div className="container h-100">
@@ -18,15 +16,15 @@ export default function Jumbotron() {
                             <br />
                             italian <i>book community</i>.
                         </p>
-                        <br></br>
+                        <br />
                         <p className="h2 mb-4">
                             We help you read reviews of
                             <br />
                             your favorite books.
                         </p>
                         {/* Pulsante "Scopri di più" */}
-                        <Link
-                            to="/books" // Link per navigare alla sezione delle card
+                        <button
+                            onClick={onDiscoverMore}
                             className="btn btn-primary text-white font-weight-bold text-uppercase"
                             style={{
                                 backgroundColor: "#aba9ee",
@@ -36,7 +34,7 @@ export default function Jumbotron() {
                             }}
                         >
                             Discover more
-                        </Link>
+                        </button>
                     </div>
                     <div className="col-lg-7 col-xxl-5 z-index-9 position-relative">
                         <img
@@ -50,4 +48,3 @@ export default function Jumbotron() {
         </div>
     );
 }
-
