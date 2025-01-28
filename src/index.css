@@ -849,3 +849,8 @@ svg {
 .Aboutcard:hover p {
   opacity: 1;
 }
+
+
+.AboutUs{
+  display:flex ;
+}
