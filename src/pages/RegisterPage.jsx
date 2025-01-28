@@ -1,3 +1,3 @@
 export default function RegisterPage() {
-    return <h1>Registrati qui</h1>
+    return <h2 className="mb-4">Registrati qui</h2>
 }

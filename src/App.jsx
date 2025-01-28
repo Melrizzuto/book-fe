@@ -19,19 +19,16 @@ function App() {
         <Routes>
           <Route path="/" Component={DefaultLayout}>
             <Route index Component={HomePage} />
-            <Route path="books">
+            <Route path="/books" Component={HomePage}>
               <Route path=":id" Component={BookDetails} />
             </Route>
-          <Route path="/form" Component={Form} />
-          <Route path="/contact" Component={ContactUs} />
-          <Route path="/about" Component={About} />
-          <Route path="/login" Component={LogInPage} />
-          <Route path="/register" Component={RegisterPage} />
-          <Route path="/NotFound" Component={NotFound} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-
+            <Route path="/form" Component={Form} />
+            <Route path="/contact" Component={ContactUs} />
+            <Route path="/about" Component={About} />
+            <Route path="/login" Component={LogInPage} />
+            <Route path="/register" Component={RegisterPage} />
+            <Route path="/NotFound" Component={NotFound} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </GlobalProvider>
