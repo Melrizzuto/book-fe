@@ -796,7 +796,7 @@ p:active {
 
 
 /* Contact us  */
-/* From Uiverse.io by gagan-gv */ 
+
 .Aboutcard {
   width: 200px;
   height: 250px;
@@ -840,7 +840,7 @@ svg {
   cursor: pointer;
 }
 
-.card:hover .img {
+.Aboutcard:hover .img {
   transform: scale(1.1);
   border: 1px solid #f0f0f0;
 }
@@ -851,6 +851,4 @@ svg {
 }
 
 
-.AboutUs{
-  display:flex ;
-}
+.AboutUs{display:flex  ;}
