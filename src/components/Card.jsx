@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
+
 function Card({ book }) {
+    // url completo dell'immagine
+    const imageUrl = `http://localhost:3000/images/${book.image}`;
+
     return (
         // La card è strutturata in una colonna di Bootstrap con un margine inferiore.
         <div className="col-md-4 mb-4">
             <div className="card h-100">
                 {/* Inserisco un'immagine del libro, usando l'URL passato dalla prop 'book'. */}
                 <img
-                    src={book.image_url}
+                    src={imageUrl}
                     className="card-img-top"
                     alt={book.title} // Aggiungo il titolo come alt per l'immagine per l'accessibilità.
                 />
@@ -18,17 +23,16 @@ function Card({ book }) {
                     </p>
                     <p className="card-text">
                         {/* Aggiungo una breve descrizione del libro per fornire più informazioni. */}
-                        {book.description}
+                        {book.abstract}
                     </p>
-                    {/* Creo un link per vedere più dettagli del libro, anche se al momento non ha una destinazione. */}
-                    <a href="#" className="btn btn-primary">
+                    {/* Usa un Link per navigare alla pagina dei dettagli del libro */}
+                    <Link to={`/books/${book.id}`} className="btn btn-primary">
                         See more
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
     );
 };
 
-// Esporto il componente Card per poterlo riutilizzare in altre parti del progetto.
 export default Card;
