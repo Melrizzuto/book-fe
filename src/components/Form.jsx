@@ -7,14 +7,15 @@ const newReview = {
     text: "",
 };
 
-const apiUrl = import.meta.env.VITE_APIURL;
-
 function AddReviews({ book_id, reloadReviews }) {
     const [formData, setFormData] = useState(newReview);
 
+    const apiUrl = import.meta.env.VITE_APIURL;
+    const bookEndpoint = `${apiUrl}/books/${book_id}/reviews`;
+
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post(`${apiUrl}/books/${book_id}/reviews`, formData).then((res) => {
+        axios.post(bookEndpoint, formData).then((res) => {
             console.log("Review creata:", res.data);
             setFormData(newReview);
             reloadReviews();
