@@ -31,7 +31,7 @@ export default function BookDetails() {
           navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
         });
     };
-    getDataDetails(); // Chiamo la funzione per ottenere i dettagli del libro
+    getDataDetails(id); // Chiamo la funzione per ottenere i dettagli del libro
   }, [id]);
 
   // Funzione per disegnare le stelle
@@ -132,7 +132,7 @@ export default function BookDetails() {
 
           {/* Sezione del form per lasciare una recensione */}
           <div className="container" ref={reviewFormRef}>
-            <Form />
+            <Form book_id={id} />
           </div>
         </div>
       </section>
