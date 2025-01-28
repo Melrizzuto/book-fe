@@ -29,8 +29,6 @@ function BooksList() {
 
     return (
         <div className="container mt-4">
-            <h1 className="text-primary">Bool Books</h1>
-            <h3 className="text-secondary">The nerdiest book community</h3>
 
             {loading ? (
                 <p>Loading books...</p>

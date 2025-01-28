@@ -15,9 +15,9 @@ function App() {
     <GlobalProvider>
       <BrowserRouter>
         <Routes>
-          <Route Component={DefaultLayout}>
-            <Route path="/books">
-              <Route index Component={HomePage} />
+          <Route path="/" Component={DefaultLayout}>
+            <Route index Component={HomePage} />
+            <Route path="books">
               <Route path=":id" Component={BookDetails} />
             </Route>
             <Route path="/form" Component={Form} />

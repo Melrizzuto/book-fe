@@ -7,6 +7,7 @@ function Card({ book }) {
     return (
         // La card è strutturata in una colonna di Bootstrap con un margine inferiore.
         <div className="col-md-4 mb-4">
+
             <div className="card h-100">
                 {/* Inserisco un'immagine del libro, usando l'URL passato dalla prop 'book'. */}
                 <img

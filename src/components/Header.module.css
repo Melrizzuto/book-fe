@@ -1,0 +1,79 @@
+/* Header.module.css */
+
+/* Header container */
+.header {
+    background-color: white;
+    position: relative;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar scrolled */
+.navbar-scrolled {
+    background-color: white;
+}
+
+/* Logo styles */
+.navbar-brand img {
+    width: 100px;
+    /* Imposta la larghezza desiderata per il logo */
+}
+
+/* Navbar links */
+.navbar-nav .nav-item .nav-link {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #aba9ee;
+    /* Colore lilla quando si passa sopra */
+}
+
+/* Button Styles */
+.btn {
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.btn-block {
+    display: block;
+}
+
+.btnLogin {
+    background-color: #aba9ee;
+    /* Colore di sfondo lilla per il bottone "Accedi" */
+    color: white;
+    /* Testo bianco */
+    border: none;
+}
+
+.btnRegister {
+    background-color: transparent;
+    /* Sfondo trasparente per il bottone "Registrati" */
+    color: #aba9ee;
+    /* Testo lilla */
+    border: 2px solid #aba9ee;
+    /* Bordo lilla */
+}
+
+.btnLogin:hover,
+.btnRegister:hover {
+    opacity: 0.8;
+    /* Effetto hover per entrambi i bottoni */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        padding-top: 15px;
+    }
+}
