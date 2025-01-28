@@ -824,16 +824,6 @@ p:active {
   background-color: #152f50;
 }
 
-p {
-  opacity: 0;
-  transition: all 0.5s;
-}
-
-.heading {
-  padding: 10px;
-  font-weight: 500;
-  font-size: 18px;
-}
 
 svg {
   padding: 0 5px;
@@ -849,6 +839,4 @@ svg {
 .Aboutcard:hover p {
   opacity: 1;
 }
-
-
 .AboutUs{display:flex  ;}
