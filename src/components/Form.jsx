@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 
 const newReview = {
     name: "",
@@ -10,9 +9,22 @@ const newReview = {
 
 const apiUrl = import.meta.env.VITE_APIURL;
 
-function AddReviews({ handleSubmit }) {
+function AddReviews({ book_id, reloadReviews }) {
     const [formData, setFormData] = useState(newReview);
-    const { id } = useParams();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        axios.post(`${apiUrl}/books/2/reviews`, formData).then((res) => {
+            console.log("Review creata:", res.data);
+            setFormData(newReview);
+            //reloadReviews();
+        }).catch((err) => {
+            console.log("errore", err);
+        })
+            .finally(() => {
+                console.log("Finito");
+            })
+    }
 
     function handleInput(e) {
         const value =
@@ -20,32 +32,16 @@ function AddReviews({ handleSubmit }) {
         setFormData({ ...formData, [e.target.name]: value });
     }
 
-    function AddReview(e) {
-        e.preventDefault();
-        handleSubmit({ ...formData });
-        setFormData(newReview);
-    }
-
-    useEffect(() => {
-        function reviewData() {
-            axios.post(`${apiUrl}/books/${id}/reviews`).then((res) => {
-                console.log(res.data);
-            })
-                .catch((err) => {
-                    console.log("errore", err);
-                })
-                .finally(() => {
-                    console.log("Finito");
-                })
-        }
-        reviewData();
-    }, []);
-    
+    // function AddReview(e) {
+    //     e.preventDefault();
+    //     handleSubmit({ ...formData });
+    //     setFormData(newReview);
+    // }
 
     return (
         <section className="my-4 container">
             <h2>Aggiungi nuova recensione</h2>
-            <form onSubmit={AddReview}>
+            <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">
                         Nome:
