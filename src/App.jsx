@@ -6,6 +6,8 @@ import BookDetails from "./pages/BookDetails";
 import Form from "./components/Form";
 import ContactUs from "./pages/ContactUs";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,13 +22,10 @@ function App() {
           <Route path="/contact" Component={ContactUs} />
           <Route path="/about" Component={About} />
         </Route>
-
-        <Route path="*" Component={NotFoundPage} />
-
-
+        <Route path="/NotFound" Component={NotFound} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App;
+export default App
