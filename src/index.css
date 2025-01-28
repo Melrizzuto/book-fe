@@ -1,1 +1,151 @@
-/* stile generale */
+/* HEADER  */
+.Header {
+  display: flex;
+  max-width: 800px;
+  background:#9191916b;
+  margin: 50px auto;
+  border-radius: 30px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.headerNavLink {
+  text-decoration: none;
+  color: black;
+  position: relative;
+      display: block;
+      text-transform: uppercase;
+      margin: 10px 0;
+      padding: 10px 10px;
+      text-decoration: none;
+      color: #262626;
+      font-family: sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      transition: .5s;
+      z-index: 1;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top: 2px solid #262626;
+        border-bottom: 2px solid #262626;
+        transform: scaleY(2);
+        opacity: 0;
+        transition: .3s;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color:#0F172A;
+        transform: scale(0);
+        opacity: 0;
+        transition: .3s;
+        z-index: -1;
+      }
+      &:hover {
+        color: #fff;
+        &:before {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+        &:after {
+          transform: scaleY(1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* DETAILS-book */
+/*  Card */
+
+p {
+  height: 50px;
+  margin: 5px;
+  width: 120px;
+  background: #333;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Consolas, Courier New, monospace;
+  border: solid #404c5d 1px;
+  font-size: 16px;
+  color: rgb(17, 8, 59);
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #2e2d2d, #212121);
+  -webkit-box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+    inset 5px 5px 10px #212121, inset -5px -5px 10px #212121;
+  box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+    inset 5px 5px 10px #212121, inset -5px -5px 10px #212121;
+
+}
+
+p:hover {
+  -webkit-box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78;
+  box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+p:active {
+  -webkit-box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78;
+  box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78;
+  color: #d6d6d6;
+  -webkit-transition: 100ms;
+  transition: 100ms;
+}
+
+
+.CardDetails {
+    max-width: 800px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  transition: all .2s;
+   display: flex;
+    flex-direction: row;
+    min-height: 31rem;
+      background-color: #F8F9FA;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.card2:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+
+.wrapper:hover {
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+}
+
+.imgDetails{
+  width:18rem;
+
+}
+.wrapper{
+    gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 120px auto;
+ max-width: 730px;
+ 
+}
+
+.DetailsBadge{
+  color:black ; 
+  font size : 1rem;
+}
