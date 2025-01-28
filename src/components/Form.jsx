@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const newReview = {
     name: "",
@@ -11,6 +12,7 @@ const apiUrl = import.meta.env.VITE_APIURL;
 
 function AddReviews({ handleSubmit }) {
     const [formData, setFormData] = useState(newReview);
+    const { id } = useParams();
 
     function handleInput(e) {
         const value =
@@ -24,17 +26,21 @@ function AddReviews({ handleSubmit }) {
         setFormData(newReview);
     }
 
-    function reviewData() {
-        axios.post(apiUrl + "/books/id/reviews/").then((res) => {
-            console.log(res.data);
-        })
-            .catch((err) => {
-                console.log("errore", err);
+    useEffect(() => {
+        function reviewData() {
+            axios.post(`${apiUrl}/books/${id}/reviews`).then((res) => {
+                console.log(res.data);
             })
-            .finally(() => {
-                console.log("Finito");
-            })
-    }
+                .catch((err) => {
+                    console.log("errore", err);
+                })
+                .finally(() => {
+                    console.log("Finito");
+                })
+        }
+        reviewData();
+    }, []);
+    
 
     return (
         <section className="my-4 container">
