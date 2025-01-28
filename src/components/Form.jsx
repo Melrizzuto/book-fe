@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 const newReview = {
     name: "",
@@ -7,10 +7,24 @@ const newReview = {
     text: "",
 };
 
-// const apiUrl = import.meta.env.VITE_APIURL;
+const apiUrl = import.meta.env.VITE_APIURL;
 
-function AddReviews({ handleSubmit }) {
+function AddReviews({ book_id, reloadReviews }) {
     const [formData, setFormData] = useState(newReview);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        axios.post(`${apiUrl}/books/2/reviews`, formData).then((res) => {
+            console.log("Review creata:", res.data);
+            setFormData(newReview);
+            //reloadReviews();
+        }).catch((err) => {
+            console.log("errore", err);
+        })
+            .finally(() => {
+                console.log("Finito");
+            })
+    }
 
     function handleInput(e) {
         const value =
@@ -18,18 +32,18 @@ function AddReviews({ handleSubmit }) {
         setFormData({ ...formData, [e.target.name]: value });
     }
 
-    function AddReview(e) {
-        e.preventDefault();
-        handleSubmit({ ...formData });
-        setFormData(newReview);
-    }
+    // function AddReview(e) {
+    //     e.preventDefault();
+    //     handleSubmit({ ...formData });
+    //     setFormData(newReview);
+    // }
 
     return (
         <section className="my-4 container">
             <h2>Aggiungi nuova recensione</h2>
-            <form onSubmit={AddReview}>
+            <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="username" className="form-label">
+                    <label htmlFor="name" className="form-label">
                         Nome:
                     </label>
                     <input
@@ -40,6 +54,7 @@ function AddReviews({ handleSubmit }) {
                         value={formData.name}
                         onChange={handleInput}
                         name="name"
+                        required
                     />
                     <div id="namelHelp" className="form-text">
                         Scrivi il tuo nome
@@ -49,17 +64,16 @@ function AddReviews({ handleSubmit }) {
                     <label htmlFor="text" className="form-label">
                         Testo recensione:
                     </label>
-                    <input
-                        type="text"
+                    <textarea
                         className="form-control"
                         id="text"
                         value={formData.text}
                         onChange={handleInput}
                         name="text"
-                    />
+                    ></textarea>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="number" className="form-label">
+                    <label htmlFor="vote" className="form-label">
                         Valutazione:
                     </label>
                     <input
@@ -71,7 +85,11 @@ function AddReviews({ handleSubmit }) {
                         value={formData.vote}
                         onChange={handleInput}
                         name="vote"
+                        required
                     />
+                    <div id="namelHelp" className="form-text">
+                        Inserisci un voto da 1 a 10
+                    </div>
                 </div>
                 <button type="submit" className="btn btn-primary">
                     Submit
