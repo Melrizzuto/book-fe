@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Card from "../components/Card";
 
 function BooksList() {
@@ -27,6 +32,14 @@ function BooksList() {
         fetchBooks();
     }, []);
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1
+    };
+
     return (
         <div className="container mt-4">
 
@@ -34,9 +47,11 @@ function BooksList() {
                 <p>Loading books...</p>
             ) : (
                 <div className="row">
-                    {books.map((book) => (
-                        <Card key={book.id} book={book} />
-                    ))}
+                    <Slider {...settings}>
+                        {books.map((book) => (
+                            <Card key={book.id} book={book} />
+                        ))}
+                    </Slider>
                 </div>
             )}
         </div>
