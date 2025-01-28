@@ -1,45 +1,53 @@
-//  Importo gli hook useEffect, useState da React per la gestione degli effetti collaterali e dello stato.
 import { useEffect, useState } from "react";
-// Importo i metodi useParams per ottenere i parametri dell'URL
 import { useParams, useNavigate } from "react-router-dom";
-// Importo la libreria axios per effettuare richieste HTTP
 import axios from "axios";
-import ReviewList from "../components/ReviewList";
-import ReviewCard from "../components/ReviewCard";
-export default function bookDetails() {
-  // Dichiaro il mio URL
+import ReviewCard from "../components/ReviewCard"; // Importa ReviewCard
+import { FaStar, FaRegStar } from "react-icons/fa";
+// Form
+import Form from "../components/Form";
 
+export default function BookDetails() {
   const url = import.meta.env.VITE_API_URL;
   const endPoint = "books";
   const imgUrl = "http://localhost:3000/images/";
-  // useParams per ottenere l'ID del book dalla URL
-  const { id } = useParams();
+  const { id } = useParams(); // Otteniamo l'ID del libro dalla URL
 
-  // useState per dichiarare una variabile di stato che conterrà il book richiesto con il suo ID
   const [bookDetails, setBookDetails] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     const getDataDetails = () => {
-      // Eseguo una richiesta GET all'API con l'ID del book.
       axios
         .get(`${url}/${endPoint}/${id}`)
         .then((res) => {
-          console.log(res.data.item);
-          setBookDetails(res.data.item);
+          setBookDetails(res.data.item); // Impostiamo i dettagli del libro
+          setReviews(res.data.item.reviews || []); // Impostiamo le recensioni del libro
         })
         .catch((err) => {
-          console.log("book details not found", err);
-          navigate("/NotFound");
+          console.log("Book details not found", err);
+          navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
         });
     };
-    // Chiamo la funzione per recuperare i dettagli del book
-    getDataDetails();
+    getDataDetails(); // Chiamo la funzione per ottenere i dettagli del libro
   }, [id]);
+
+  // Funzione per disegnare le stelle
+  const drawStars = (vote) => {
+    let stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        i <= Math.ceil(vote / 2) ? <FaStar key={i} /> : <FaRegStar key={i} />
+      );
+    }
+    return stars;
+  };
 
   return (
     <section className="d-flex g-5 wrapper">
+      {/* Card principale del libro */}
       {bookDetails && (
-        <div className=" card CardDetails">
+        <div className="card CardDetails mb-4">
           <img
             src={`${imgUrl}${bookDetails.image}`}
             className="card-img-top imgDetails"
@@ -51,10 +59,28 @@ export default function bookDetails() {
           </div>
         </div>
       )}
-      {/* <div className="card-text">
-        <ReviewCard />
-        <ReviewList />
-      </div> */}
+
+      {/* Card per le recensioni, sotto la card principale */}
+      {bookDetails && (
+        <div className="card CardReviews">
+          <div className="card-body">
+            <h5 className="card-title">Recensioni</h5>
+            {/* Rendering delle recensioni usando ReviewCard */}
+            {reviews.length === 0 ? (
+              <p>No reviews available.</p>
+            ) : (
+              reviews.map((review) => (
+                <ReviewCard
+                  key={review.id}
+                  review={review}
+                  stars={drawStars(review.vote)}
+                />
+              ))
+            )}
+          </div>
+        </div>
+      )}
+      <Form />
     </section>
   );
 }

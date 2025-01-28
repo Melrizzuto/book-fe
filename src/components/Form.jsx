@@ -14,10 +14,10 @@ function AddReviews({ book_id, reloadReviews }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post(`${apiUrl}/books/2/reviews`, formData).then((res) => {
+        axios.post(`${apiUrl}/books/${book_id}/reviews`, formData).then((res) => {
             console.log("Review creata:", res.data);
             setFormData(newReview);
-            //reloadReviews();
+            reloadReviews();
         }).catch((err) => {
             console.log("errore", err);
         })
