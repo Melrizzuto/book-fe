@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <h1 className="my-3 container">
-      <div class="card">
+      <div class="Aboutcard">
         <div class="img">
           <svg
             height="30"

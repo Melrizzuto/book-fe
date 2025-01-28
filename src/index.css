@@ -797,7 +797,7 @@ p:active {
 
 /* Contact us  */
 /* From Uiverse.io by gagan-gv */ 
-.card {
+.Aboutcard {
   width: 200px;
   height: 250px;
   background: #07182E;
@@ -845,7 +845,7 @@ svg {
   border: 1px solid #f0f0f0;
 }
 
-.card:hover h1,
-.card:hover p {
+.Aboutcard:hover h1,
+.Aboutcard:hover p {
   opacity: 1;
 }
