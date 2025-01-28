@@ -11,6 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route Component={DefaultLayout}>
+          <Route path="/" Component={HomePage} />
           <Route path="/books">
             <Route index Component={HomePage} />
             <Route path=":id" Component={BookDetails} />
@@ -19,7 +20,7 @@ function App() {
           <Route path="/contact" Component={ContactUs} />
           <Route path="/about" Component={About} />
         </Route>
-        {/* <Route path="*" Component={NotFoundPage} /> */}
+        <Route path="*" Component={NotFoundPage} />
       </Routes>
     </BrowserRouter>
   );
