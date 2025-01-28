@@ -1,0 +1,13 @@
+/* Button Styles */
+.myBtn {
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: #aba9ee;
+    color: white;
+    border: none;
+}
+
+.myBtn:hover {
+    opacity: 0.8;
+}

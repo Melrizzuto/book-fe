@@ -14,7 +14,7 @@ export default function LogInPage() {
                         <label for="password" className="form-label ">Password</label>
                         <input type="password" className="form-control w-75 mx-auto" id="password" placeholder="Inserisci la tua password" required />
                     </div>
-                    <button type="submit" className="btn btn-primary w-30">Accedi</button>
+                    <button type="submit" className="myBtn w-30">Accedi</button>
                 </form>
 
                 <div class="text-center mt-3">

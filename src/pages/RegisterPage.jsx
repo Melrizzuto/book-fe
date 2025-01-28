@@ -21,7 +21,7 @@ export default function RegisterPage() {
                         <label for="confirmPassword" className="form-label">Conferma Password</label>
                         <input type="password" className="form-control w-75 mx-auto" id="confirmPassword" placeholder="Conferma la tua password" required />
                     </div>
-                    <button type="submit" className="btn btn-primary w-30">Crea account</button>
+                    <button type="submit" className="myBtn w-30">Crea account</button>
                 </form>
 
                 <div class="text-center mt-3">
