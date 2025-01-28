@@ -21,8 +21,9 @@ function App() {
           <Route path="/form" Component={Form} />
           <Route path="/contact" Component={ContactUs} />
           <Route path="/about" Component={About} />
+          <Route path="/NotFound" Component={NotFound} />
+
         </Route>
-        <Route path="/NotFound" Component={NotFound} />
       </Routes>
     </BrowserRouter>
   );
