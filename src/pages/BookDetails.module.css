@@ -1,0 +1,11 @@
+.container {
+    padding-top: 200px;
+    height: 100vh;
+}
+
+/* Sfondo verde */
+.bg-verde {
+    background-color: #aebea8;
+    /* Verde principale */
+    height: 100vh;
+}
