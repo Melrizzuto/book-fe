@@ -1,0 +1,47 @@
+/* Button Styles */
+.myBtn {
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background-color: #aba9ee;
+  color: white;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.myBtn:hover {
+  opacity: 0.8;
+}
+
+a {
+  text-decoration: none;
+  color: #aba9ee;
+}
+
+/* carosello */
+.slick-slide>div {
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsivo per mobile */
+@media (max-width: 576px) {
+  .myBtn {
+    padding: 8px 20px;
+    font-size: 13px;
+    width: auto;
+    white-space: nowrap;
+    font-weight: normal;
+  }
+}
+
+main {
+  background-color: #f8f9fa;
+}
+
+.contactUs-wrapper {
+  padding: 10%;
+}

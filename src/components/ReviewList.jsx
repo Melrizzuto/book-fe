@@ -14,7 +14,7 @@ export default function ReviewList() {
 
     useEffect(() => {
         setLoading(true); // Inizia il caricamento
-        axios.get(`http://localhost:3000/movies/${id}`)
+        axios.get(`http://localhost:3000/books/${id}`)
             .then(response => {
                 setReviews(response.data.item.reviews || []);  // Fallback se non ci sono recensioni
                 setLoading(false);
@@ -29,15 +29,12 @@ export default function ReviewList() {
         let stars = [];
         for (let i = 1; i <= 5; i++) {
             stars.push(
-                i <= Math.ceil(vote / 2) ? (
-                    <FaStar key={i} />
-                ) : (
-                    <FaRegStar key={i} />
-                )
+                i <= vote ? <FaStar key={i} /> : <FaRegStar key={i} />
             );
         }
         return stars;
     };
+
 
     // Render della pagina
     if (loading) {
@@ -51,11 +48,11 @@ export default function ReviewList() {
             ) : (
                 <div className="row">
                     {reviews.length === 0 ? (
-                        <p>No reviews available.</p> // messaggio se non ci sono film disponibili
+                        <p>No reviews available.</p> // messaggio se non ci sono libri disponibili
                     ) : (
                         reviews.map((review) => (
                             <ReviewCard key={review.id} review={review} stars={drawStars(review.vote)} />
-                        )) // Mappa i film e li passa al componente Card
+                        )) // Mappa i libri e li passa al componente Card
                     )}
                 </div>
             )

@@ -1,16 +1,45 @@
 import { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 const newReview = {
     name: "",
-    vote: "",
     text: "",
+    vote: "",
 };
 
-// const apiUrl = import.meta.env.VITE_APIURL;
-
-function AddReviews({ handleSubmit }) {
+function AddReviews({ book_id, reloadReviews }) {
     const [formData, setFormData] = useState(newReview);
+    const [isFormValid, setIsFormValid] = useState(true);
+
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    function validateForm() {
+        if (!formData.text || !formData.name) return false;
+        if (isNaN(formData.vote) || formData.vote < 1 || formData.vote > 10)
+            return false;
+        return true;
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        if (!validateForm()) {
+            setIsFormValid(false);
+            return;
+        }
+
+        axios.post(`${apiUrl}/books/${book_id}/reviews`, formData).then((res) => {
+            console.log("Review creata:", res.data);
+            setIsFormValid(true);
+            setFormData(newReview);
+            reloadReviews();
+        }).catch((err) => {
+            console.log("errore", err);
+        })
+            .finally(() => {
+                console.log("Finito");
+            })
+    }
 
     function handleInput(e) {
         const value =
@@ -18,69 +47,68 @@ function AddReviews({ handleSubmit }) {
         setFormData({ ...formData, [e.target.name]: value });
     }
 
-    function AddReview(e) {
-        e.preventDefault();
-        handleSubmit({ ...formData });
-        setFormData(newReview);
-    }
-
     return (
         <section className="my-4 container">
-            <h2>Aggiungi nuova recensione</h2>
-            <form onSubmit={AddReview}>
+            <h2>Add a New Review</h2>
+            {!isFormValid && (
+                <div className="alert alert-danger mb-3">
+                    The data in the form is not valid
+                </div>
+            )}
+            <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="username" className="form-label">
-                        Nome:
+                    <label htmlFor="name" className="form-label">
+                        Name
                     </label>
                     <input
                         type="text"
                         className="form-control"
                         id="name"
-                        aria-describedby="namelHelp"
+                        placeholder="Enter your name"
                         value={formData.name}
                         onChange={handleInput}
                         name="name"
+                        // required
                     />
-                    <div id="namelHelp" className="form-text">
-                        Scrivi il tuo nome
-                    </div>
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="invalid-feedback">Please choose a username.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="text" className="form-label">
-                        Testo recensione:
+                        Review Text
                     </label>
-                    <input
-                        type="text"
+                    <textarea
                         className="form-control"
                         id="text"
+                        placeholder="Write your review here"
                         value={formData.text}
                         onChange={handleInput}
                         name="text"
-                    />
+                    ></textarea>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="number" className="form-label">
-                        Valutazione:
+                    <label htmlFor="vote" className="form-label">
+                        Vote
                     </label>
                     <input
                         type="number"
                         className="form-control"
                         id="vote"
                         min="0"
-                        max="10"
+                        max="5"
+                        placeholder="Rate the book (0-5)"
                         value={formData.vote}
                         onChange={handleInput}
                         name="vote"
+                        // required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn myBtn">
                     Submit
                 </button>
             </form>
-
         </section>
     )
 }
 
 export default AddReviews;
-

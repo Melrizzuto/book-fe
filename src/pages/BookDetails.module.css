@@ -1,0 +1,63 @@
+.containerHero {
+    padding-top: 200px;
+    height: 100vh;
+}
+
+/* Sfondo verde */
+.bg-verde {
+    background-color: #aebea8;
+    height: 100vh;
+}
+
+a {
+    color: white;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.cardReviews {
+    margin-bottom: 2rem;
+}
+
+.book-negative-margin {
+    margin-top: 50px;
+}
+
+.cardReviews,
+.shadow-sm {
+    margin-bottom: 30px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* immagine di copertina */
+.book-cover {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.book-cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

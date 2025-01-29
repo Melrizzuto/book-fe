@@ -1,0 +1,147 @@
+/* Header container */
+.header {
+    background-color: white;
+    position: relative;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar scrolled */
+.navbar-scrolled {
+    background-color: white;
+}
+
+/* Navbar links */
+.navbar-nav .nav-item .nav-link {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #aba9ee;
+    /* Colore lilla quando si passa sopra */
+}
+
+/* Button Styles */
+.btn {
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 100px;
+    transition: all 0.3s ease;
+}
+
+.btn-block {
+    display: block;
+}
+
+.btnLogin {
+    border: none;
+    background-color: white;
+    color: #aba9ee;
+    border: 2px solid #aba9ee;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.btnRegister {
+    background-color: transparent;
+    color: #aba9ee;
+    border: 2px solid #aba9ee;
+}
+
+.btnLogin:hover,
+.btnRegister:hover {
+    opacity: 0.8;
+}
+
+/* Mobile button styles */
+.navbar-toggler {
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+    /* Più spazio per cliccare */
+}
+
+.navbar-toggler-icon {
+    background-color: #333;
+    /* Colore del simbolo dell'hamburger */
+}
+
+/* Responsive Design */
+
+/* Logo per mobile */
+@media (max-width: 992px) {
+    .navbar-brand-mobile {
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 10px 0;
+        color: #333;
+    }
+
+    /* Navbar quando è espansa (mobile) */
+    .navbar-collapse {
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-collapse.show {
+        transform: translateX(0);
+        /* Entrata scorrevole a sinistra */
+    }
+
+    /* Menu mobile */
+    .hamburger-dropdown {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: auto;
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 1001;
+        display: none;
+        /* Non visibile finché non viene attivato */
+    }
+
+    /* Mostra il dropdown quando il menu è aperto */
+    .hamburger-dropdown.show {
+        display: block;
+    }
+
+    /* Pulsanti nel menu mobile */
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .btnLogin,
+    .btnRegister {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+}
+
+/* Aggiustamenti per i dispositivi più piccoli */
+@media (max-width: 576px) {
+    .btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        padding: 8px 12px;
+    }
+}

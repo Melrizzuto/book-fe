@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Card from "../components/Card";
 
 function BooksList() {
@@ -27,18 +34,61 @@ function BooksList() {
         fetchBooks();
     }, []);
 
+    const CustomPrevArrow = (props) => (
+        <button {...props} className="slick-prev">
+            <FaChevronLeft size={35} color="#B5C6AC" />
+        </button>
+    );
+
+    const CustomNextArrow = (props) => (
+        <button {...props} className="slick-next">
+            <FaChevronRight size={35} color="#B5C6AC" />
+        </button>
+    );
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true, // Attiva lo scorrimento automatico
+        autoplaySpeed: 800, // Tempo tra una slide e l'altra (in ms)
+        cssEase: "ease-in-out", // Transizione più fluida
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        prevArrow: <CustomPrevArrow />,
+        nextArrow: <CustomNextArrow />,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
+
     return (
         <div className="container mt-4">
-            <h1 className="text-primary">Bool Books</h1>
-            <h3 className="text-secondary">The nerdiest book community</h3>
 
             {loading ? (
                 <p>Loading books...</p>
             ) : (
                 <div className="row">
-                    {books.map((book) => (
-                        <Card key={book.id} book={book} />
-                    ))}
+                    <Slider {...settings}>
+                        {books.map((book) => (
+                            <Card key={book.id} book={book} />
+                        ))}
+                    </Slider>
                 </div>
             )}
         </div>
