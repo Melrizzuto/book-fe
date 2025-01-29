@@ -1,84 +1,137 @@
+/* Container principale del jumbotron */
 .hero {
     background-color: rgb(181, 198, 172);
+    /* Colore di sfondo del jumbotron */
     height: 100vh;
+    /* Imposta l'altezza del jumbotron a 100% dell'altezza della finestra */
     min-height: 100vh;
+    /* Assicura che il jumbotron non sia mai più piccolo di 100vh */
     display: flex;
+    /* Usa il flexbox per centrare il contenuto */
     justify-content: center;
+    /* Centra orizzontalmente */
     align-items: center;
+    /* Centra verticalmente */
     position: relative;
+    /* Posizione relativa per posizionare elementi sopra */
 }
 
+/* Container che organizza gli elementi all'interno del jumbotron */
 .heroContainer {
     height: 100%;
+    /* Altezza completa del contenitore */
     display: flex;
+    /* Flexbox per organizzare gli elementi in riga */
     flex-direction: row;
+    /* Organizza gli elementi in orizzontale */
     align-items: center;
+    /* Allinea verticalmente gli elementi */
     justify-content: space-between;
+    /* Distanza uguale tra gli elementi */
     width: 100%;
+    /* Larghezza al 100% del contenitore */
 }
 
+/* Stili per il testo nel jumbotron */
 .heroText {
     text-align: left;
+    /* Allinea il testo a sinistra */
     margin-right: 20px;
+    /* Distanza a destra */
     z-index: 2;
+    /* Posiziona il testo sopra l'immagine */
 }
 
+/* Stili per il titolo del jumbotron */
 .heroTitle {
     font-size: 2.5rem;
+    /* Dimensione grande del titolo */
     font-weight: normal;
+    /* Peso del font normale */
     margin-bottom: 1rem;
+    /* Distanza sotto il titolo */
 }
 
+/* Sottotitolo del jumbotron */
 .heroSubtitle {
     font-size: 2rem;
+    /* Dimensione del sottotitolo */
     margin-bottom: 2rem;
+    /* Spazio sotto il sottotitolo */
 }
 
+/* Pulsante nel jumbotron */
 .heroButton {
     background-color: #aba9ee;
+    /* Colore di sfondo del pulsante */
     border-radius: 20px;
+    /* Rende gli angoli arrotondati */
     padding: 10px 20px;
+    /* Distanze interne del pulsante */
     border: white;
+    /* Bordo bianco */
     font-weight: bold;
+    /* Testo in grassetto */
     text-transform: uppercase;
+    /* Testo in maiuscolo */
 }
 
+/* Wrapper dell'immagine nel jumbotron */
 .heroImageWrapper {
     position: relative;
+    /* Posizione relativa per sovrapporre elementi */
     display: flex;
+    /* Usa flexbox per centrare l'immagine */
     justify-content: center;
+    /* Centra orizzontalmente */
     align-items: center;
+    /* Centra verticalmente */
     z-index: 1;
+    /* Posiziona l'immagine sotto il testo */
 }
 
+/* Immagine nel jumbotron */
 .heroImage {
     max-width: 100%;
+    /* L'immagine occupa tutta la larghezza disponibile */
     height: auto;
+    /* Mantiene l'altezza proporzionale */
     object-fit: contain;
+    /* Mantiene le proporzioni dell'immagine */
     max-height: 70%;
-    /* Limita l'altezza dell'immagine */
+    /* Limita l'altezza dell'immagine al 70% */
 }
 
 
-/* Media Query per tablet (max-width: 992px) */
+/* 
+SETTING MEDIA QUERIES */
+
+/* Media Query per DESKTOP  con larghezza max di 1200px */
 @media (max-width: 1200px) {
     .heroSubtitle {
         font-size: 1.5rem;
+        /* Riduce la dimensione del sottotitolo */
         margin-bottom: 2rem;
+        /* Mantiene lo stesso spazio sotto */
     }
 }
 
-/* Media Query per tablet (max-width: 992px) */
+/* Media Query per tablet con larghezza max di 992px */
 @media (max-width: 992px) {
     .heroContainer {
         flex-direction: column;
+        /* Dispone gli elementi in colonna */
         align-items: center;
+        /* Allinea gli elementi al centro */
         padding-top: 100px;
+        /* Aggiunge spazio sopra */
     }
 
     .heroText {
         text-align: center;
+        /* Centra il testo */
         margin-right: 0;
+        /* Rimuove il margine destro */
     }
 
     .heroImageWrapper {
@@ -88,17 +141,21 @@
 
     .heroImage {
         max-width: 80%;
+        /* Riduce la larghezza dell'immagine */
         object-fit: contain;
+        /* Mantiene le proporzioni */
     }
 }
 
-/* Media Query per tablet (max-width: 768px) */
+/* Media Query per tablet con larghezza max di 768px */
 @media (max-width: 768px) {
     .heroContainer {
         flex-direction: column;
+        /* Dispone gli elementi in colonna */
         align-items: center;
+        /* Allinea gli elementi al centro */
         justify-content: center;
-
+        /* Centra gli elementi */
     }
 
     .heroImageWrapper {
@@ -108,19 +165,24 @@
 
     .heroImage {
         max-width: 100%;
+        /* L'immagine occupa tutta la larghezza disponibile */
         height: auto;
+        /* Mantiene l'altezza proporzionale */
     }
 
     .heroButton {
         margin-top: 20px;
+        /* Spazio sopra il pulsante */
     }
 }
 
-/* Media Query per mobile (max-width: 576px) */
+/* Media Query per dispositivi mobili con larghezza max di 576px */
 @media (max-width: 576px) {
     .heroContainer {
         flex-direction: column;
+        /* Dispone gli elementi in colonna */
         align-items: center;
+        /* Allinea gli elementi al centro */
     }
 
     .heroImageWrapper {
@@ -130,12 +192,17 @@
 
     .heroImage {
         max-width: 100%;
+        /* L'immagine occupa tutta la larghezza disponibile */
         height: auto;
+        /* Mantiene l'altezza proporzionale */
         object-fit: contain;
+        /* Mantiene le proporzioni */
     }
 
     .heroButton {
         width: 100%;
+        /* Rende il pulsante largo quanto il contenitore */
         margin-top: 20px;
+        /* Spazio sopra il pulsante */
     }
 }

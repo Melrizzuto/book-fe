@@ -1,72 +1,104 @@
 /* Header container */
 .header {
     background-color: white;
+    /* Colore di sfondo bianco per l'header */
     position: relative;
+    /* Posizione relativa per permettere il posizionamento di elementi figli */
 }
 
 /* Navbar Styles */
 .navbar {
     background-color: transparent;
+    /* Sfondo trasparente di default */
     transition: background-color 0.3s ease;
+    /* Transizione morbida quando cambia il colore di sfondo */
 }
 
 /* Navbar scrolled */
 .navbar-scrolled {
     background-color: white;
+    /* Sfondo bianco quando la navbar è scrollata */
 }
 
 /* Navbar links */
 .navbar-nav .nav-item .nav-link {
     color: #333;
+    /* Colore del testo dei link */
     font-weight: bold;
+    /* Grassetto per i link */
     text-transform: uppercase;
+    /* Trasformazione in maiuscolo */
     padding: 10px 15px;
+    /* Padding per il link */
     transition: color 0.3s ease;
+    /* Transizione morbida per il cambiamento del colore */
 }
 
+/* Hover effect per i link della navbar */
 .navbar-nav .nav-item .nav-link:hover {
     color: #aba9ee;
-    /* Colore lilla quando si passa sopra */
+    /* Colore lilla quando il cursore passa sopra il link */
 }
 
 /* Button Styles */
 .btn {
     font-weight: bold;
+    /* Grassetto per il testo dei bottoni */
     border-radius: 20px;
+    /* Bordo arrotondato */
     padding: 5px 15px;
+    /* Padding interno del bottone */
     width: 100px;
+    /* Larghezza fissa per i bottoni */
     transition: all 0.3s ease;
+    /* Transizione per tutti i cambiamenti */
 }
 
 .btn-block {
     display: block;
+    /* Rende il bottone a larghezza intera */
 }
 
+/* Button specific styles */
 .btnLogin {
     border: none;
+    /* Rimuove il bordo */
     background-color: white;
+    /* Sfondo bianco */
     color: #aba9ee;
+    /* Colore lilla per il testo */
     border: 2px solid #aba9ee;
+    /* Bordo lilla */
     border-radius: 20px;
+    /* Bordo arrotondato */
     padding: 5px 15px;
+    /* Padding del bottone */
     font-weight: bold;
+    /* Grassetto per il testo */
 }
 
 .btnRegister {
     background-color: transparent;
+    /* Sfondo trasparente */
     color: #aba9ee;
+    /* Colore lilla per il testo */
     border: 2px solid #aba9ee;
+    /* Bordo lilla */
 }
 
+/* Hover effect per i bottoni */
 .btnLogin:hover,
 .btnRegister:hover {
     opacity: 0.8;
+    /* Riduce l'opacità per l'effetto hover */
 }
 
 /* Mobile button styles */
 .navbar-toggler {
     background-color: transparent;
+    /* Sfondo trasparente per il bottone dell'hamburger */
     border: none;
+    /* Rimuove il bordo */
     padding: 8px;
     /* Più spazio per cliccare */
 }
@@ -82,55 +114,75 @@
 @media (max-width: 992px) {
     .navbar-brand-mobile {
         text-align: center;
+        /* Allinea il logo al centro */
         font-size: 1.2rem;
+        /* Dimensione del font per il logo */
         padding: 10px 0;
+        /* Padding verticale */
         color: #333;
+        /* Colore del testo */
     }
 
     /* Navbar quando è espansa (mobile) */
     .navbar-collapse {
         transition: transform 0.3s ease;
+        /* Transizione morbida quando il menu si espande */
     }
 
     .navbar-collapse.show {
         transform: translateX(0);
-        /* Entrata scorrevole a sinistra */
+        /* Entrata scorrevole da sinistra */
     }
 
     /* Menu mobile */
     .hamburger-dropdown {
         position: absolute;
+        /* Posizione assoluta per il dropdown */
         top: 50px;
+        /* Posiziona il menu sotto la navbar */
         right: 0;
+        /* Allinea a destra */
         width: auto;
+        /* Larghezza automatica */
         background-color: white;
+        /* Sfondo bianco per il dropdown */
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* Ombra per il dropdown */
         border-radius: 5px;
+        /* Bordo arrotondato */
         z-index: 1001;
+        /* Imposto uno z-index maggiore per sovrastare gli altri elementi */
         display: none;
-        /* Non visibile finché non viene attivato */
+        /* Il menu è nascosto di default */
     }
 
     /* Mostra il dropdown quando il menu è aperto */
     .hamburger-dropdown.show {
         display: block;
+        /* Mostra il dropdown quando è attivo */
     }
 
     /* Pulsanti nel menu mobile */
     .navbar-nav .nav-item {
         margin-bottom: 10px;
+        /* Aggiunge spazio tra gli item */
         text-align: center;
+        /* Centra il testo dei link nel menu */
     }
 
     .btn {
         width: 100%;
+        /* Larghezza del bottone 100% nel menu mobile */
         padding: 10px;
+        /* Aumenta il padding per il bottone */
     }
 
     .btnLogin,
     .btnRegister {
         font-size: 1rem;
+        /* Imposta la dimensione del font per i bottoni */
         margin-top: 10px;
+        /* Distanza tra i bottoni nel menu mobile */
     }
 }
 
@@ -138,10 +190,13 @@
 @media (max-width: 576px) {
     .btn {
         width: 100%;
+        /* Larghezza del bottone 100% per dispositivi piccoli */
         padding: 12px;
+        /* Aumento del padding per un bottone più grande */
     }
 
     .navbar-nav .nav-item .nav-link {
         padding: 8px 12px;
+        /* Aggiusto il padding dei link per dispositivi più piccoli */
     }
 }

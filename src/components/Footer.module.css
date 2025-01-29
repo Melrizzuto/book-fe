@@ -1,61 +1,75 @@
 /* Footer.module.css */
+
+/* definisco il colore del logo, che si trova all'interno della classe footer-logo */
 .footer-logo h3 {
   color: #333;
-  /* Colore per il logo */
+  /* colore per il logo */
 }
 
+/* definisco il colore per i paragrafi all'interno della classe footer-logo */
 .footer-logo p {
   color: #333;
-  /* Colore per i paragrafi */
+  /* colore per i paragrafi */
 }
 
+/* definisco il colore per i link delle icone social all'interno della classe footer-logo */
 .footer-logo a {
   color: #aba9ee;
-  /* Colore per le icone social */
+  /* colore per le icone social */
 }
 
+/* stile per i link nel footer */
 .navbar-nav .nav-link {
   color: #333 !important;
-  /* Colore per i link nel footer */
+  /* colore per i link nel footer */
   text-transform: uppercase;
   font-weight: bold;
 }
 
+/* effetto hover per i link nel footer */
 .navbar-nav .nav-link:hover {
   color: #aba9ee !important;
-  /* Hover effect per i link */
+  /* hover effect per i link */
 }
 
+/* definisco il colore per il testo dei diritti d'autore */
 .copyright-bar p {
   color: #777;
-  /* Colore per il testo dei diritti d'autore */
+  /* colore per il testo dei diritti d'autore */
 }
 
+/* definisco il colore per i link all'interno dei diritti d'autore */
 .copyright-bar a {
   color: #aba9ee;
-  /* Colore per i link nei diritti d'autore */
+  /* colore per i link nei diritti d'autore */
   text-decoration: none;
 }
 
+/* effetto hover sui link dei diritti d'autore */
 .copyright-bar a:hover {
   text-decoration: underline;
+  /* hover effect per i link nei diritti d'autore */
 }
 
+/* colore delle icone social all'interno della classe social-icons */
 .social-icons i {
   color: #aba9ee;
-  /* Colore delle icone social */
+  /* colore delle icone social */
 }
 
+/* hover effect per le icone social */
 .social-icons i:hover {
   color: #333;
-  /* Hover effect per le icone social */
+  /* hover effect per le icone social */
 }
 
+/* padding per navbar-nav e copyright-bar per migliorarne l'allineamento */
 .navbar-nav,
 .copyright-bar {
   padding: 0 15px;
 }
 
+/* larghezza dell'elemento che contiene le icone social */
 .icon-width {
   width: 18rem;
 }
