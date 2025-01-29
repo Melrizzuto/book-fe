@@ -21,6 +21,12 @@ a {
   color: #aba9ee;
 }
 
+/* carosello */
+.slick-slide>div {
+    display: flex;
+    justify-content: center;
+}
+
 /* Responsivo per mobile */
 @media (max-width: 576px) {
   .myBtn {
