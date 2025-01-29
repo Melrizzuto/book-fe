@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,12 +34,44 @@ function BooksList() {
         fetchBooks();
     }, []);
 
+    const CustomPrevArrow = (props) => (
+        <button {...props} className="slick-prev">
+            <FaArrowLeft size={24} color="black" />
+        </button>
+    );
+
+    const CustomNextArrow = (props) => (
+        <button {...props} className="slick-next">
+            <FaArrowRight size={24} color="black" />
+        </button>
+    );
+
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: <CustomPrevArrow />,
+        nextArrow: <CustomNextArrow />,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                },
+            },
+        ],
     };
 
     return (
