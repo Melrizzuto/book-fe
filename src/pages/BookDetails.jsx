@@ -19,21 +19,21 @@ export default function BookDetails() {
   const reviewFormRef = useRef(null); // useRef per il form delle recensioni
 
   useEffect(() => {
-    const getDataDetails = () => {
-      axios
-        .get(`${url}/${endPoint}/${id}`)
-        .then((res) => {
-          setBookDetails(res.data.item); // Impostiamo i dettagli del libro
-          setReviews(res.data.item.reviews || []); // Impostiamo le recensioni del libro
-        })
-        .catch((err) => {
-          console.log("Book details not found", err);
-          navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
-        });
-    };
     getDataDetails(id); // Chiamo la funzione per ottenere i dettagli del libro
   }, [id]);
 
+  const getDataDetails = () => {
+    axios
+      .get(`${url}/${endPoint}/${id}`)
+      .then((res) => {
+        setBookDetails(res.data.item); // Impostiamo i dettagli del libro
+        setReviews(res.data.item.reviews || []); // Impostiamo le recensioni del libro
+      })
+      .catch((err) => {
+        console.log("Book details not found", err);
+        navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
+      });
+  };
   // Funzione per disegnare le stelle
   const drawStars = (vote) => {
     let stars = [];
@@ -127,7 +127,7 @@ export default function BookDetails() {
           {/* Sezione del form per lasciare una recensione */}
           <div className="container-sm my-5" ref={reviewFormRef}>
             <div className={`card shadow-sm rounded p-4`}>
-              <Form book_id={id} />
+              <Form book_id={id} reloadReviews={getDataDetails}/>
             </div>
           </div>
         </div>
