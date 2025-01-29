@@ -56,7 +56,7 @@ export default function BookDetails() {
     <>
       {/* Hero Section */}
       <section className={`hero hero-wave ${styles['bg-verde']} book-hero`}>
-        <div className={`container ${styles.container}`}>
+        <div className={`container ${styles.containerHero}`}>
           <div className="row">
             {/* Sezione copertina del libro */}
             <div className="col-md-4 text-center mb-4">
@@ -77,10 +77,7 @@ export default function BookDetails() {
                 <>
                   <h1 className="h2">{bookDetails.title}</h1>
                   <h3 className="h5">
-                    <a
-                      href="#"
-                      className="font-weight-normal"
-                    >
+                    <a href="#" className="font-weight-normal">
                       {bookDetails.author}
                     </a>
                   </h3>
@@ -93,11 +90,8 @@ export default function BookDetails() {
                   </div>
                   <p className="lead">{bookDetails.abstract}</p>
                   {/* Pulsante "Lascia una recensione" */}
-                  <button
-                    className={`btn myBtn`}
-                    onClick={scrollToReviewForm}
-                  >
-                    Lascia una recensione
+                  <button className={`btn myBtn`} onClick={scrollToReviewForm}>
+                    Add review
                   </button>
                 </>
               )}
@@ -108,12 +102,12 @@ export default function BookDetails() {
 
       {/* Sezione delle recensioni */}
       <section className="book-negative-margin">
-        <div className="container py-5">
+        <div className="container py-5 ">
           <div className="row">
             <div className="col-12">
-              <div className="card CardReviews">
+              <div className={`card CardReviews shadow-sm rounded p-4`}>
                 <div className="card-body">
-                  <h5 className="card-title">Recensioni</h5>
+                  <h5 className="card-title mb-5">Reviews</h5>
                   {reviews.length === 0 ? (
                     <p>No reviews available.</p>
                   ) : (
@@ -131,8 +125,10 @@ export default function BookDetails() {
           </div>
 
           {/* Sezione del form per lasciare una recensione */}
-          <div className="container" ref={reviewFormRef}>
-            <Form book_id={id} />
+          <div className="container-sm my-5" ref={reviewFormRef}>
+            <div className={`card shadow-sm rounded p-4`}>
+              <Form book_id={id} />
+            </div>
           </div>
         </div>
       </section>

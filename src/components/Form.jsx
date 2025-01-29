@@ -12,7 +12,6 @@ function AddReviews({ book_id, reloadReviews }) {
 
     const apiUrl = import.meta.env.VITE_API_URL;
 
-
     function handleSubmit(e) {
         e.preventDefault();
         axios.post(`${apiUrl}/books/${book_id}/reviews`, formData).then((res) => {
@@ -33,41 +32,33 @@ function AddReviews({ book_id, reloadReviews }) {
         setFormData({ ...formData, [e.target.name]: value });
     }
 
-    // function AddReview(e) {
-    //     e.preventDefault();
-    //     handleSubmit({ ...formData });
-    //     setFormData(newReview);
-    // }
-
     return (
         <section className="my-4 container">
-            <h2>Aggiungi nuova recensione</h2>
+            <h2>Add a New Review</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">
-                        Nome:
+                        Name
                     </label>
                     <input
                         type="text"
                         className="form-control"
                         id="name"
-                        aria-describedby="namelHelp"
+                        placeholder="Enter your name"
                         value={formData.name}
                         onChange={handleInput}
                         name="name"
                         required
                     />
-                    <div id="namelHelp" className="form-text">
-                        Scrivi il tuo nome
-                    </div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="text" className="form-label">
-                        Testo recensione:
+                        Review Text
                     </label>
                     <textarea
                         className="form-control"
                         id="text"
+                        placeholder="Write your review here"
                         value={formData.text}
                         onChange={handleInput}
                         name="text"
@@ -75,31 +66,27 @@ function AddReviews({ book_id, reloadReviews }) {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="vote" className="form-label">
-                        Valutazione:
+                        Vote
                     </label>
                     <input
                         type="number"
                         className="form-control"
                         id="vote"
                         min="0"
-                        max="10"
+                        max="5"
+                        placeholder="Rate the book (0-5)"
                         value={formData.vote}
                         onChange={handleInput}
                         name="vote"
                         required
                     />
-                    <div id="namelHelp" className="form-text">
-                        Inserisci un voto da 1 a 10
-                    </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn myBtn">
                     Submit
                 </button>
             </form>
-
         </section>
     )
 }
 
 export default AddReviews;
-
