@@ -29,15 +29,12 @@ export default function ReviewList() {
         let stars = [];
         for (let i = 1; i <= 5; i++) {
             stars.push(
-                i <= Math.ceil(vote / 2) ? (
-                    <FaStar key={i} />
-                ) : (
-                    <FaRegStar key={i} />
-                )
+                i <= vote ? <FaStar key={i} /> : <FaRegStar key={i} />
             );
         }
         return stars;
     };
+
 
     // Render della pagina
     if (loading) {
