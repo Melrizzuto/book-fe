@@ -9,13 +9,28 @@ const newReview = {
 
 function AddReviews({ book_id, reloadReviews }) {
     const [formData, setFormData] = useState(newReview);
+    const [isFormValid, setIsFormValid] = useState(true);
 
     const apiUrl = import.meta.env.VITE_API_URL;
 
+    function validateForm() {
+        if (!formData.text || !formData.name) return false;
+        if (isNaN(formData.vote) || formData.vote < 1 || formData.vote > 10)
+            return false;
+        return true;
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
+
+        if (!validateForm()) {
+            setIsFormValid(false);
+            return;
+        }
+
         axios.post(`${apiUrl}/books/${book_id}/reviews`, formData).then((res) => {
             console.log("Review creata:", res.data);
+            setIsFormValid(true);
             setFormData(newReview);
             reloadReviews();
         }).catch((err) => {
@@ -35,6 +50,11 @@ function AddReviews({ book_id, reloadReviews }) {
     return (
         <section className="my-4 container">
             <h2>Add a New Review</h2>
+            {!isFormValid && (
+                <div className="alert alert-danger mb-3">
+                    The data in the form is not valid
+                </div>
+            )}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">
@@ -48,8 +68,10 @@ function AddReviews({ book_id, reloadReviews }) {
                         value={formData.name}
                         onChange={handleInput}
                         name="name"
-                        required
+                        // required
                     />
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="invalid-feedback">Please choose a username.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="text" className="form-label">
@@ -78,7 +100,7 @@ function AddReviews({ book_id, reloadReviews }) {
                         value={formData.vote}
                         onChange={handleInput}
                         name="vote"
-                        required
+                        // required
                     />
                 </div>
                 <button type="submit" className="btn myBtn">
