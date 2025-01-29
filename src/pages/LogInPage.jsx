@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './LogInPage.module.css'; // Aggiungi il file CSS per gli stili personalizzati
 
 export default function LogInPage() {
     const [formData, setFormData] = useState({
@@ -32,7 +31,7 @@ export default function LogInPage() {
 
     return (
         <section className="position-relative py-5 bg-light">
-            <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+            <div className="container d-flex justify-content-center align-items-center vh-100">
                 <div className="form-container card shadow-sm p-5">
                     <h2 className="mb-4 text-center">Log In</h2>
                     <p className="text-center">Log in to see all your books:</p>

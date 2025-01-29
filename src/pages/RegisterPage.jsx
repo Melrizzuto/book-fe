@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './RegisterPage.module.css'; // Aggiungi il file CSS per gli stili personalizzati
+import './RegisterPage.module.css';
 
 export default function RegisterPage() {
     const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ export default function RegisterPage() {
 
     return (
         <section className="position-relative bg-light">
-            <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+            <div className="container d-flex justify-content-center align-items-center vh-100 py-5">
                 <div className="form-container card shadow-sm p-5">
                     <h2 className="mb-4 text-center">Register Here</h2>
 
@@ -111,6 +111,6 @@ export default function RegisterPage() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
