@@ -19,6 +19,7 @@ export default function BookDetails() {
   const reviewFormRef = useRef(null); // useRef per il form delle recensioni
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Forza lo scroll all'inizio della pagina
     const getDataDetails = () => {
       axios
         .get(`${url}/${endPoint}/${id}`)
