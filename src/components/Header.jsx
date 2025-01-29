@@ -38,8 +38,8 @@ export default function Header() {
     >
       <nav className={`navbar navbar-expand-lg navbar-light fixed-top ${isScrolled ? styles['navbar-scrolled'] : ''}`}>
         {/* Logo con NavLink per andare alla home */}
-        <NavLink to="/" className={`navbar-brand d-block d-lg-none ${styles['navbar-brand']}`} style={{ cursor: "pointer" }}>
-          <img src="#" className="img-fluid" alt="Logo" />
+        <NavLink to="/" className={`navbar-brand d-block d-lg-none px-2 ${styles['navbar-brand']}`}>
+          <strong>BoolBooks</strong>
         </NavLink>
         <button
           type="button"
@@ -55,7 +55,7 @@ export default function Header() {
         <div id="navbarSupportedContent" className="collapse navbar-collapse">
           <div className="row mx-auto w-100 py-4 py-lg-0">
             <div className="col-lg-3">
-              <NavLink to="/" className={`navbar-brand ${styles['navbar-brand']}`} style={{ cursor: "pointer" }}>
+              <NavLink to="/" className={`navbar-brand ${styles['navbar-brand']}`}>
                 <strong>BoolBooks</strong>
               </NavLink>
             </div>
@@ -79,14 +79,6 @@ export default function Header() {
                   <NavLink
                     to="/login"
                     className={`btn btn-block ${styles['btnLogin']}`}
-                    style={{
-                      backgroundColor: "white",
-                      color: "#aba9ee",
-                      border: "2px solid #aba9ee",
-                      borderRadius: "20px",
-                      padding: "5px 15px",
-                      fontWeight: "bold",
-                    }}
                   >
                     LOG IN
                   </NavLink>

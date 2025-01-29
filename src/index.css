@@ -6,6 +6,10 @@
     background-color: #aba9ee;
     color: white;
     border: none;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
 }
 
 .myBtn:hover {
@@ -15,4 +19,15 @@
 a {
     text-decoration: none;
     color: #aba9ee;
+}
+
+/* Responsivo per mobile */
+@media (max-width: 576px) {
+    .myBtn {
+        padding: 8px 20px;
+        font-size: 13px;
+        width: auto;
+        white-space: nowrap;
+        font-weight: normal;
+    }
 }
