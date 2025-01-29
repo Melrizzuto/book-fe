@@ -15,7 +15,7 @@ export default function Footer() {
               <p className="mb-0 font-weight-bold">Get free books,</p>
               <p className="mb-0 font-weight-bold">spread culture,</p>
               <p className="font-weight-bold">read eco-friendly reviews.</p>
-              <div className="row">
+              <div style={{ display: "flex", maxWidth: "10rem" }}>
                 <div className="col-3 p-0 text-center">
                   <a
                     href="#"
