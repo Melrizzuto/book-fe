@@ -6,7 +6,6 @@
 /* Sfondo verde */
 .bg-verde {
     background-color: #aebea8;
-    /* Verde principale */
     height: 100vh;
 }
 
@@ -45,4 +44,20 @@ a {
 
 .card-body {
     padding: 20px;
+}
+
+/* immagine di copertina */
+.book-cover {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.book-cover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

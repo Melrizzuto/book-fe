@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,12 +34,47 @@ function BooksList() {
         fetchBooks();
     }, []);
 
+    const CustomPrevArrow = (props) => (
+        <button {...props} className="slick-prev">
+            <FaChevronLeft size={35} color="#B5C6AC" />
+        </button>
+    );
+
+    const CustomNextArrow = (props) => (
+        <button {...props} className="slick-next">
+            <FaChevronRight size={35} color="#B5C6AC" />
+        </button>
+    );
+
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1
+        speed: 1000,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true, // Attiva lo scorrimento automatico
+        autoplaySpeed: 800, // Tempo tra una slide e l'altra (in ms)
+        cssEase: "ease-in-out", // Transizione più fluida
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        prevArrow: <CustomPrevArrow />,
+        nextArrow: <CustomNextArrow />,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     return (

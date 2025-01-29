@@ -1,15 +1,15 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import styles from './Footer.module.css';
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className="mt-5">
+    <footer>
       <div className="bg-light">
-        <div className="container py-5">
+        <div className="container ">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-lg-3 col-xxl-2">
               {/* Logo personalizzato */}
-              <div className={styles['footer-logo']}>
+              <div className={styles["footer-logo"]}>
                 <h3>BoolBooks</h3>
               </div>
               <p className="mb-0 font-weight-bold">Get free books,</p>
@@ -22,7 +22,7 @@ export default function Footer() {
                     rel="nofollow"
                     target="_blank"
                     aria-label="Instagram"
-                    className={styles['social-icons']}
+                    className={styles["social-icons"]}
                   >
                     <i className="h3 fab fa-instagram"></i>
                   </a>
@@ -33,7 +33,7 @@ export default function Footer() {
                     rel="nofollow"
                     target="_blank"
                     aria-label="Facebook"
-                    className={styles['social-icons']}
+                    className={styles["social-icons"]}
                   >
                     <i className="h3 fab fa-facebook-f"></i>
                   </a>
@@ -44,7 +44,7 @@ export default function Footer() {
                     rel="nofollow"
                     target="_blank"
                     aria-label="Facebook Groups"
-                    className={styles['social-icons']}
+                    className={styles["social-icons"]}
                   >
                     <i className="h3 fas fa-users"></i>
                   </a>
@@ -55,7 +55,7 @@ export default function Footer() {
                     rel="nofollow"
                     target="_blank"
                     aria-label="Spotify"
-                    className={styles['social-icons']}
+                    className={styles["social-icons"]}
                   >
                     <i className="h3 fab fa-spotify"></i>
                   </a>
@@ -69,18 +69,12 @@ export default function Footer() {
                   <p className="text-uppercase font-weight-bold ">BoolBooks</p>
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <a
-                        href="/about"
-                        className="nav-link"
-                      >
+                      <a href="/about" className="nav-link">
                         About
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a
-                        href="/about"
-                        className="nav-link"
-                      >
+                      <a href="/about" className="nav-link">
                         Contact
                       </a>
                     </li>
@@ -91,10 +85,7 @@ export default function Footer() {
                   <p className="text-uppercase font-weight-bold">Upgrade</p>
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <a
-                        href="/acciobooks-pro"
-                        className="nav-link"
-                      >
+                      <a href="/acciobooks-pro" className="nav-link">
                         BoolBooks PRO
                       </a>
                     </li>
@@ -105,10 +96,7 @@ export default function Footer() {
                   <p className="text-uppercase font-weight-bold">Support</p>
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <a
-                        href="/contact"
-                        className="nav-link"
-                      >
+                      <a href="/contact" className="nav-link">
                         Contact us
                       </a>
                     </li>
