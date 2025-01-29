@@ -84,9 +84,7 @@ export default function BookDetails() {
                   </h3>
                   <div className="mb-3">
                     <span className="text-quinary">
-                      {[...Array(5)].map((_, index) => (
-                        <FaStar key={index} />
-                      ))}
+                      {drawStars(bookDetails.vote_average)}
                     </span>
                   </div>
                   <p className="lead">{bookDetails.abstract}</p>
