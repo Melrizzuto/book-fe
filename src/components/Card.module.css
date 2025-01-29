@@ -26,7 +26,6 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    /* Overlay scuro */
     color: white;
     opacity: 0;
     visibility: hidden;
@@ -54,6 +53,37 @@
 }
 
 .cardText {
-    font-size: 0.64rem;
+    font-size: 0.70rem;
     margin-bottom: 0.5rem;
+}
+
+/* Media Queries*/
+@media screen and (max-width: 1400px) {
+    .cardText {
+        font-size: 0.60rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .cardText {
+        display: none;
+    }
+
+    .card {
+        max-height: 250px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cardText {
+        display: block;
+        font-size: 1.1rem;
+    }
+
+    .card {
+        position: relative;
+        overflow: hidden;
+        margin-right: 20px;
+        max-height: 350px;
+    }
 }

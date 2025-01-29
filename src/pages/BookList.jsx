@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import Card from "../components/Card";
+import styles from './BookList.module.css'
 
 function BooksList() {
-    //  stato per i libri e per il caricamento
+    // stato per i libri e per il caricamento
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -24,10 +22,10 @@ function BooksList() {
                 setLoading(false);
             })
             .catch((error) => {
-                // se c è un errore, lo stampo sulla console
+                // se c'è un errore, lo stampo sulla console
                 console.error("Errore nel caricamento dei dati:", error);
             });
-    };
+    }
 
     // lo uso per chiamare l'API al caricamento della pagina
     useEffect(() => {
@@ -61,14 +59,21 @@ function BooksList() {
         nextArrow: <CustomNextArrow />,
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 992, // A 992px, mostra 3 cards
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 768, // A 768px, mostra 2 cards
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 576,
+                breakpoint: 576, // A 567px, mostra 1 card
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -78,12 +83,14 @@ function BooksList() {
     };
 
     return (
-        <div className="container mt-4">
-
+        <div className={styles.container}>
+            <div className="font-bold px-5">
+                <strong> Our Library </strong>
+            </div>
             {loading ? (
                 <p>Loading books...</p>
             ) : (
-                <div className="row">
+                <div className={`${styles.row} p-5`}>
                     <Slider {...settings}>
                         {books.map((book) => (
                             <Card key={book.id} book={book} />
@@ -93,6 +100,7 @@ function BooksList() {
             )}
         </div>
     );
-};
+}
 
 export default BooksList;
+

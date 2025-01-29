@@ -1,0 +1,141 @@
+.hero {
+    background-color: rgb(181, 198, 172);
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.heroContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.heroText {
+    text-align: left;
+    margin-right: 20px;
+    z-index: 2;
+}
+
+.heroTitle {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.heroButton {
+    background-color: #aba9ee;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.heroImageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.heroImage {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 70%;
+    /* Limita l'altezza dell'immagine */
+}
+
+
+/* Media Query per tablet (max-width: 992px) */
+@media (max-width: 1200px) {
+    .heroSubtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Media Query per tablet (max-width: 992px) */
+@media (max-width: 992px) {
+    .heroContainer {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+    }
+
+    .heroText {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .heroImageWrapper {
+        margin-top: 20px;
+        /* Spazio tra il testo e l'immagine */
+    }
+
+    .heroImage {
+        max-width: 80%;
+        object-fit: contain;
+    }
+}
+
+/* Media Query per tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    .heroContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .heroImageWrapper {
+        margin-top: 20px;
+        /* Spazio tra il testo e l'immagine */
+    }
+
+    .heroImage {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .heroButton {
+        margin-top: 20px;
+    }
+}
+
+/* Media Query per mobile (max-width: 576px) */
+@media (max-width: 576px) {
+    .heroContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .heroImageWrapper {
+        margin-top: 20px;
+        /* Spazio tra il testo e l'immagine */
+    }
+
+    .heroImage {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .heroButton {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
