@@ -1,21 +1,32 @@
 /* Loader.css */
 .loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Sfondo semitrasparente, meno invasivo */
+    z-index: 10000;
+    backdrop-filter: blur(8px);
+    /* Sfondo sfocato più forte */
 }
 
 .spinner {
-    border: 8px solid #f3f3f3;
-    /* Grigio chiaro */
-    border-top: 8px solid #3498db;
-    /* Colore della "spina" */
+    border: 8px solid #e0f7fa;
+    /* Colore chiaro per lo sfondo */
+    border-top: 8px solid #00bcd4;
+    /* Colore verde acqua (colore primario del brand) */
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite, pulse 1.5s infinite alternate;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+    /* Ombra soft colorata */
 }
 
 @keyframes spin {
@@ -25,5 +36,15 @@
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
     }
 }
