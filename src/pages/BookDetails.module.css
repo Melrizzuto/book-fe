@@ -6,7 +6,6 @@
 /* Sfondo verde */
 .bg-verde {
     background-color: #aebea8;
-    /* Verde principale */
     height: 100vh;
 }
 
@@ -47,20 +46,14 @@ a {
     padding: 20px;
 }
 
-/* Nuove modifiche per l'immagine di copertura */
+/* immagine di copertina */
 .book-cover {
     max-width: 80%;
-    /* Dimensione ridotta */
     height: auto;
-    /* Mantieni le proporzioni */
     margin-bottom: 20px;
-    /* Distanza dal basso */
     border-radius: 15px;
-    /* Bordi arrotondati */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Ombra */
     object-fit: cover;
-    /* Assicurati che l'immagine si adatti bene */
 }
 
 .book-cover-container {
