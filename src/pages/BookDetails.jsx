@@ -17,6 +17,7 @@ export default function BookDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Forza lo scroll all'inizio della pagina
     const getDataDetails = () => {
       axios
         .get(`${url}/${endPoint}/${id}`)
@@ -29,7 +30,7 @@ export default function BookDetails() {
           navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
         });
     };
-    getDataDetails(); // Chiamo la funzione per ottenere i dettagli del libro
+    getDataDetails(id); // Chiamo la funzione per ottenere i dettagli del libro
   }, [id]);
 
   // Funzione per disegnare le stelle
