@@ -5,7 +5,7 @@ import ReviewCard from "../components/ReviewCard"; // Importa ReviewCard
 import { FaStar, FaRegStar } from "react-icons/fa";
 // Form
 import Form from "../components/Form";
-import styles from "./BookDetails.module.css"
+import styles from "./BookDetails.module.css";
 
 export default function BookDetails() {
   const url = import.meta.env.VITE_API_URL;
@@ -61,10 +61,10 @@ export default function BookDetails() {
             {/* Sezione copertina del libro */}
             <div className="col-md-4 text-center mb-4">
               {bookDetails && (
-                <div className="responsive-aspect-ratio square-aspect-ratio mb-3">
+                <div className={`responsive-aspect-ratio square-aspect-ratio mb-3 ${styles['book-cover-container']}`}>
                   <img
                     src={`${imgUrl}${bookDetails.image}`}
-                    className="img-fluid"
+                    className={`img-fluid ${styles['book-cover']}`}
                     alt={bookDetails.title}
                   />
                 </div>
@@ -135,3 +135,4 @@ export default function BookDetails() {
     </>
   );
 }
+
