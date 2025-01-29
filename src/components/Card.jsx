@@ -5,7 +5,7 @@ function Card({ book }) {
     const imgUrl = "http://localhost:3000/images/" + book.image;
 
     return (
-        <div className="col-md-4 mb-4">
+        <div className="col-md-6 mb-4">
             <div className="card h-100">
                 <img
                     src={`${imgUrl}`}
