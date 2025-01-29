@@ -1,57 +1,61 @@
 /* Footer.module.css */
 .footer-logo h3 {
-    color: #333;
-    /* Colore per il logo */
+  color: #333;
+  /* Colore per il logo */
 }
 
 .footer-logo p {
-    color: #333;
-    /* Colore per i paragrafi */
+  color: #333;
+  /* Colore per i paragrafi */
 }
 
 .footer-logo a {
-    color: #aba9ee;
-    /* Colore per le icone social */
+  color: #aba9ee;
+  /* Colore per le icone social */
 }
 
 .navbar-nav .nav-link {
-    color: #333 !important;
-    /* Colore per i link nel footer */
-    text-transform: uppercase;
-    font-weight: bold;
+  color: #333 !important;
+  /* Colore per i link nel footer */
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #aba9ee !important;
-    /* Hover effect per i link */
+  color: #aba9ee !important;
+  /* Hover effect per i link */
 }
 
 .copyright-bar p {
-    color: #777;
-    /* Colore per il testo dei diritti d'autore */
+  color: #777;
+  /* Colore per il testo dei diritti d'autore */
 }
 
 .copyright-bar a {
-    color: #aba9ee;
-    /* Colore per i link nei diritti d'autore */
-    text-decoration: none;
+  color: #aba9ee;
+  /* Colore per i link nei diritti d'autore */
+  text-decoration: none;
 }
 
 .copyright-bar a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .social-icons i {
-    color: #aba9ee;
-    /* Colore delle icone social */
+  color: #aba9ee;
+  /* Colore delle icone social */
 }
 
 .social-icons i:hover {
-    color: #333;
-    /* Hover effect per le icone social */
+  color: #333;
+  /* Hover effect per le icone social */
 }
 
 .navbar-nav,
 .copyright-bar {
-    padding: 0 15px;
+  padding: 0 15px;
+}
+
+.icon-width {
+  width: 18rem;
 }
