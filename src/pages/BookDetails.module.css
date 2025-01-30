@@ -3,7 +3,11 @@
     padding-top: 200px;
     /* Distanza dall'alto per il contenuto */
     height: 100vh;
-    /* Imposto l'altezza a 100vh (viewport height) per far occupare tutta la finestra */
+    /* Imposto l'altezza a 100vh per far occupare tutta la finestra */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Sfondo verde */
@@ -87,7 +91,7 @@ a {
     /* Imposto l'immagine per riempire il contenitore mantenendo le proporzioni */
 }
 
-/* Contenitore per l'immagine di copertina */
+/* Contenitore per l'immagine di copertura */
 .book-cover-container {
     display: flex;
     /* Imposto un layout flessibile */
@@ -95,4 +99,66 @@ a {
     /* Centra l'immagine orizzontalmente */
     align-items: center;
     /* Centra l'immagine verticalmente */
+}
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 767px) {
+
+    /* Modifica il comportamento della sezione Hero */
+    .containerHero {
+        padding-top: 120px;
+        /* Riduce la distanza dall'alto per dispositivi mobili */
+        height: auto;
+        /* L'altezza non è più a 100vh, per evitare che il contenuto venga schiacciato */
+        align-items: center;
+    }
+
+    .bg-verde {
+        height: auto;
+        /* Adatta la sezione sfondo alle dimensioni del contenuto */
+    }
+
+    /* Adatta la dimensione dell'immagine di copertura */
+    .book-cover {
+        max-width: 90%;
+        /* L'immagine si adatta meglio su dispositivi mobili */
+        margin-bottom: 15px;
+    }
+
+    /* Aggiusta le colonne */
+    .book-hero .containerHero {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-md-4 {
+        margin-bottom: 20px;
+        /* Aggiunge margine inferiore su mobile per separare le colonne */
+    }
+
+    .col-md-8 {
+        text-align: center;
+    }
+
+    /* Spaziatura per il bottone */
+    .btn {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Ottimizzazione per la card delle recensioni */
+    .card {
+        margin-top: 30px;
+        /* Riduce il margine superiore della card per i dispositivi mobili */
+    }
+
+    /* Spaziatura del contenuto delle recensioni */
+    .card-body {
+        padding: 1rem;
+    }
+
+    /* Adatta la card per le recensioni */
+    .cardReviews {
+        margin-bottom: 1.5rem;
+    }
 }

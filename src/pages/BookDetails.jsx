@@ -35,6 +35,7 @@ export default function BookDetails() {
         navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
       });
   };
+
   // Funzione per disegnare le stelle
   const drawStars = (vote) => {
     let stars = [];
@@ -56,11 +57,11 @@ export default function BookDetails() {
   return (
     <>
       {/* Hero Section */}
-      <section className={`hero hero-wave ${styles['bg-verde']} book-hero`}>
+      <section className={`hero hero-wave ${styles['bg-verde']} book-hero py-2`}>
         <div className={`container ${styles.containerHero}`}>
           <div className="row">
             {/* Sezione copertina del libro */}
-            <div className="col-md-4 text-center mb-4">
+            <div className="col-12 col-md-4 text-center mb-4">
               {bookDetails && (
                 <div className={`responsive-aspect-ratio square-aspect-ratio mb-3 ${styles['book-cover-container']}`}>
                   <img
@@ -73,7 +74,7 @@ export default function BookDetails() {
             </div>
 
             {/* Informazioni sul libro */}
-            <div className="col-md-8 text-left">
+            <div className="col-12 col-md-8 text-left">
               {bookDetails && (
                 <>
                   <h1 className="h2">{bookDetails.title}</h1>
@@ -126,7 +127,7 @@ export default function BookDetails() {
           {/* Sezione del form per lasciare una recensione */}
           <div className="container-sm my-5" ref={reviewFormRef}>
             <div className={`card shadow-sm rounded p-4`}>
-              <Form book_id={id} reloadReviews={getDataDetails}/>
+              <Form book_id={id} reloadReviews={getDataDetails} />
             </div>
           </div>
         </div>
@@ -134,4 +135,3 @@ export default function BookDetails() {
     </>
   );
 }
-
