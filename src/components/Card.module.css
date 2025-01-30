@@ -1,0 +1,126 @@
+/* card principale, posizione relativa e overflow nascosto */
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* wrapper per l'immagine della card, posizione relativa */
+.cardImageWrapper {
+    position: relative;
+}
+
+/* stile per l'immagine superiore della card */
+.cardImgTop {
+    width: 100%;
+    /* immagine a larghezza piena */
+    height: auto;
+    /* altezza automatica per mantenere le proporzioni */
+    transition: transform 0.3s ease;
+    /* aggiungo una transizione per l'effetto di zoom */
+    /* effetto di zoom sulla copertina */
+}
+
+/* effetto zoom sull'immagine quando la card è in hover */
+.card:hover .cardImgTop {
+    transform: scale(1.1);
+    /* zoom al passaggio del mouse */
+}
+
+/* overlay che appare sopra l'immagine della card */
+.cardOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* fondo semitrasparente nero */
+    color: white;
+    opacity: 0;
+    /* inizialmente invisibile */
+    visibility: hidden;
+    /* inizialmente invisibile */
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+    /* transizione per l'animazione */
+    display: flex;
+    flex-direction: column;
+    /* allineamento verticale */
+    justify-content: center;
+    /* centrato verticalmente */
+    align-items: center;
+    /* centrato orizzontalmente */
+    padding: 20px;
+    /* aggiungo un po' di spazio interno */
+}
+
+/* effetto hover per l'overlay, visibile con transizione */
+.card:hover .cardOverlay {
+    opacity: 1;
+    /* rende l'overlay visibile */
+    visibility: visible;
+    /* cambia la visibilità */
+    transition: opacity 0.3s ease;
+    /* transizione per l'opacità */
+    visibility: visible;
+    /* assicuro che sia visibile */
+}
+
+/* corpo della card, testo centrato */
+.cardBody {
+    text-align: center;
+}
+
+/* stile del titolo della card */
+.cardTitle {
+    font-size: 1.25rem;
+}
+
+/* stile del testo della card */
+.cardText {
+    font-size: 0.70rem;
+    /* dimensione del testo */
+    margin-bottom: 0.5rem;
+    /* margine inferiore */
+}
+
+/* Media Queries per adattare il layout ai vari schermi */
+
+/* per schermi con larghezza max di 1400px, riduco la dimensione del testo */
+@media screen and (max-width: 1400px) {
+    .cardText {
+        font-size: 0.60rem;
+        /* testo più piccolo su schermi più piccoli */
+    }
+}
+
+/* per schermi con larghezza max di 992px, nascondo il testo della card */
+@media screen and (max-width: 992px) {
+    .cardText {
+        display: none;
+        /* nascondo il testo */
+    }
+
+    .card {
+        max-height: 250px;
+        /* limito l'altezza della card */
+    }
+}
+
+/* per schermi con larghezza max di 768px, visualizzo il testo con una dimensione più grande */
+@media screen and (max-width: 768px) {
+    .cardText {
+        display: block;
+        /* mostro il testo */
+        font-size: 1.1rem;
+        /* testo più grande */
+    }
+
+    .card {
+        position: relative;
+        overflow: hidden;
+        margin-right: 20px;
+        /* aggiungo un margine destro */
+        max-height: 350px;
+        /* limito l'altezza della card */
+    }
+}

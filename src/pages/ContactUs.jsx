@@ -17,7 +17,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="container py-5">
+    <div className="container contactUs-wrapper">
       <div className="row justify-content-center">
         <div className="col-md-8 col-lg-6">
           <div className="card p-4">
@@ -60,7 +60,11 @@ export default function ContactUs() {
                 <button type="submit" className="myBtn">
                   Send
                 </button>
-                <button type="button" className="btn btn-secondary" onClick={handleReset}>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={handleReset}
+                >
                   Reset
                 </button>
               </div>

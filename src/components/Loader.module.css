@@ -1,29 +1,73 @@
-/* Loader.css */
+/* loader.css */
+
+/* questo è il contenitore principale del loader */
 .loader {
+    position: fixed;
+    /* lo posiziono in modo fisso in alto a sinistra della pagina */
+    top: 0;
+    /* allineamento al bordo superiore */
+    left: 0;
+    /* allineamento al bordo sinistro */
+    right: 0;
+    /* allineamento al bordo destro */
+    bottom: 0;
+    /* allineamento al bordo inferiore */
     display: flex;
+    /* uso flexbox per centrare gli elementi */
     justify-content: center;
+    /* centrato orizzontalmente */
     align-items: center;
-    height: 100vh;
+    /* centrato verticalmente */
     flex-direction: column;
+    /* gli elementi sono disposti in colonna */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* sfondo semitrasparente per non risultare troppo invadente */
+    z-index: 10000;
+    /* lo metto sopra tutti gli altri elementi della pagina */
+    backdrop-filter: blur(8px);
+    /* aggiungo un effetto di sfocatura allo sfondo per migliorare l'effetto visivo */
 }
 
+/* qui definisco lo spinner che rappresenta il caricamento */
 .spinner {
-    border: 8px solid #f3f3f3;
-    /* Grigio chiaro */
-    border-top: 8px solid #3498db;
-    /* Colore della "spina" */
+    border: 8px solid #e0f7fa;
+    /* un bordo chiaro per lo sfondo dello spinner */
+    border-top: 8px solid #00bcd4;
+    /* bordo superiore con il colore principale del brand */
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
+    /* faccio lo spinner rotondo */
+    width: 60px;
+    /* larghezza dello spinner */
+    height: 60px;
+    /* altezza dello spinner, uguale alla larghezza per mantenerlo rotondo */
+    animation: spin 1.5s linear infinite, pulse 1.5s infinite alternate;
+    /* due animazioni: spin per la rotazione e pulse per l'effetto di crescita */
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.3);
+    /* aggiungo un'ombra morbida colorata per dare un effetto più interessante */
 }
 
+/* animazione per la rotazione dello spinner */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
+        /* all'inizio la rotazione è a 0 gradi */
     }
 
     100% {
         transform: rotate(360deg);
+        /* alla fine della rotazione è a 360 gradi */
+    }
+}
+
+/* animazione per l'effetto di pulsazione dello spinner */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        /* inizia alla dimensione normale */
+    }
+
+    100% {
+        transform: scale(1.05);
+        /* termina con una leggera espansione */
     }
 }

@@ -5,7 +5,7 @@ import ReviewCard from "../components/ReviewCard"; // Importa ReviewCard
 import { FaStar, FaRegStar } from "react-icons/fa";
 // Form
 import Form from "../components/Form";
-import styles from "./BookDetails.module.css"
+import styles from "./BookDetails.module.css";
 
 export default function BookDetails() {
   const url = import.meta.env.VITE_API_URL;
@@ -19,20 +19,22 @@ export default function BookDetails() {
   const reviewFormRef = useRef(null); // useRef per il form delle recensioni
 
   useEffect(() => {
-    const getDataDetails = () => {
-      axios
-        .get(`${url}/${endPoint}/${id}`)
-        .then((res) => {
-          setBookDetails(res.data.item); // Impostiamo i dettagli del libro
-          setReviews(res.data.item.reviews || []); // Impostiamo le recensioni del libro
-        })
-        .catch((err) => {
-          console.log("Book details not found", err);
-          navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
-        });
-    };
+    window.scrollTo(0, 0); // Forza lo scroll all'inizio della pagina
     getDataDetails(id); // Chiamo la funzione per ottenere i dettagli del libro
   }, [id]);
+
+  const getDataDetails = () => {
+    axios
+      .get(`${url}/${endPoint}/${id}`)
+      .then((res) => {
+        setBookDetails(res.data.item); // Impostiamo i dettagli del libro
+        setReviews(res.data.item.reviews || []); // Impostiamo le recensioni del libro
+      })
+      .catch((err) => {
+        console.log("Book details not found", err);
+        navigate("/NotFound"); // Se non trovo il libro, vado alla pagina "NotFound"
+      });
+  };
 
   // Funzione per disegnare le stelle
   const drawStars = (vote) => {
@@ -55,16 +57,16 @@ export default function BookDetails() {
   return (
     <>
       {/* Hero Section */}
-      <section className={`hero hero-wave ${styles['bg-verde']} book-hero`}>
+      <section className={`hero hero-wave ${styles['bg-verde']} book-hero py-2`}>
         <div className={`container ${styles.containerHero}`}>
           <div className="row">
             {/* Sezione copertina del libro */}
-            <div className="col-md-4 text-center mb-4">
+            <div className="col-12 col-md-4 text-center mb-4">
               {bookDetails && (
-                <div className="responsive-aspect-ratio square-aspect-ratio mb-3">
+                <div className={`responsive-aspect-ratio square-aspect-ratio mb-3 ${styles['book-cover-container']}`}>
                   <img
                     src={`${imgUrl}${bookDetails.image}`}
-                    className="img-fluid"
+                    className={`img-fluid ${styles['book-cover']}`}
                     alt={bookDetails.title}
                   />
                 </div>
@@ -72,7 +74,7 @@ export default function BookDetails() {
             </div>
 
             {/* Informazioni sul libro */}
-            <div className="col-md-8 text-left">
+            <div className="col-12 col-md-8 text-left">
               {bookDetails && (
                 <>
                   <h1 className="h2">{bookDetails.title}</h1>
@@ -125,7 +127,7 @@ export default function BookDetails() {
           {/* Sezione del form per lasciare una recensione */}
           <div className="container-sm my-5" ref={reviewFormRef}>
             <div className={`card shadow-sm rounded p-4`}>
-              <Form book_id={id} />
+              <Form book_id={id} reloadReviews={getDataDetails} />
             </div>
           </div>
         </div>
