@@ -40,76 +40,78 @@ export default function Header() {
       }}
     >
       <nav className={`navbar navbar-expand-lg navbar-light fixed-top ${isScrolled ? styles["navbar-scrolled"] : ""}`}>
-        <NavLink to="/" className={`navbar-brand d-block d-lg-none px-2 ${styles["navbar-brand"]}`}>
-          <strong>BoolBooks</strong>
-        </NavLink>
+        <div className="container-fluid">
+          <NavLink to="/" className={`navbar-brand px-2 ${styles["navbar-brand"]}`}>
+            <strong>BoolBooks</strong>
+          </NavLink>
 
-        {/* Bottone per il toggle manuale */}
-        <button
-          type="button"
-          className="navbar-toggler"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-expanded={isOpen}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          {/* Bottone per il toggle manuale */}
+          <button
+            type="button"
+            className="navbar-toggler"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-        {/* Menu con classe dinamica */}
-        <div id="navbarSupportedContent" className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
-          <div className="row mx-auto w-100 py-4 py-lg-0">
-            {/* Menu navigazione (spostato a destra) */}
-            <div className="col-lg-9 d-flex align-items-center justify-content-lg-start">
-              <ul className="nav navbar-nav">
-                <li className="nav-item">
-                  <NavLink
-                    to="/about"
-                    className={`nav-link text-uppercase font-weight-bold ${styles["nav-link"]}`}
-                    onClick={handleNavLinkClick}
-                  >
-                    About
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    to="/contact"
-                    className={`nav-link text-uppercase font-weight-bold ${styles["nav-link"]}`}
-                    onClick={handleNavLinkClick}
-                  >
-                    Contact us
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+          {/* Menu con classe dinamica */}
+          <div id="navbarSupportedContent" className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
+            <div className="row mx-auto w-100 py-4 py-lg-0">
+              {/* Menu navigazione (spostato a destra) */}
+              <div className="col-lg-9 d-flex align-items-center justify-content-lg-start">
+                <ul className="nav navbar-nav">
+                  <li className="nav-item">
+                    <NavLink
+                      to="/about"
+                      className={`nav-link text-uppercase font-weight-bold ${styles["nav-link"]}`}
+                      onClick={handleNavLinkClick}
+                    >
+                      About
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      to="/contact"
+                      className={`nav-link text-uppercase font-weight-bold ${styles["nav-link"]}`}
+                      onClick={handleNavLinkClick}
+                    >
+                      Contact us
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
 
-            {/* Pulsanti Login/Register sempre all'estrema destra */}
-            <div className="col-lg-3 mt-4 mt-lg-0 d-flex align-items-center justify-content-lg-end">
-              <ul className="navbar-nav d-flex align-items-start align-items-md-center">
-                <li className="nav-item mx-md-2 mb-2 mb-lg-0">
-                  <NavLink
-                    to="/login"
-                    className={`btn btn-block ${styles["btnLogin"]}`}
-                    onClick={handleNavLinkClick}
-                  >
-                    LOG IN
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    to="/register"
-                    className={`btn btn-block text-white ${styles["btnRegister"]}`}
-                    style={{
-                      backgroundColor: "#aba9ee",
-                      borderRadius: "20px",
-                      padding: "5px 15px",
-                      fontWeight: "bold",
-                    }}
-                    onClick={handleNavLinkClick}
-                  >
-                    REGISTER
-                  </NavLink>
-                </li>
-              </ul>
+              {/* Pulsanti Login/Register sempre all'estrema destra */}
+              <div className="col-lg-3 mt-4 mt-lg-0 d-flex align-items-center justify-content-lg-end">
+                <ul className="navbar-nav d-flex align-items-start align-items-md-center">
+                  <li className="nav-item mx-md-2 mb-2 mb-lg-0">
+                    <NavLink
+                      to="/login"
+                      className={`btn btn-block ${styles["btnLogin"]}`}
+                      onClick={handleNavLinkClick}
+                    >
+                      LOG IN
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      to="/register"
+                      className={`btn btn-block text-white ${styles["btnRegister"]}`}
+                      style={{
+                        backgroundColor: "#aba9ee",
+                        borderRadius: "20px",
+                        padding: "5px 15px",
+                        fontWeight: "bold",
+                      }}
+                      onClick={handleNavLinkClick}
+                    >
+                      REGISTER
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
