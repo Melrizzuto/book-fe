@@ -8,9 +8,9 @@ import Form from "../components/Form";
 import styles from "./BookDetails.module.css";
 
 export default function BookDetails() {
-  const url = import.meta.env.VITE_API_URL;
+  const url = "https://books-be-dc0t.onrender.com";
   const endPoint = "books";
-  const imgUrl = `${url}/images/;`
+  const imgUrl = `${url}/images/`;
   const { id } = useParams(); // Otteniamo l'ID del libro dalla URL
 
   const [bookDetails, setBookDetails] = useState(null);

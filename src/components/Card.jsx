@@ -3,7 +3,7 @@ import styles from './Card.module.css';  // Importo il modulo CSS per la persona
 
 function Card({ book }) {
     // creo l'url per l'immagine del libro
-    const imgUrl = "http://localhost:3000/images/" + book.image;
+    const imgUrl = "https://books-be-dc0t.onrender.com/images/" + book.image;
 
     return (
         <div className="col-md-6 mb-4">

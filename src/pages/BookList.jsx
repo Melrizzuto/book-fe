@@ -7,21 +7,21 @@ import "slick-carousel/slick/slick-theme.css";
 import Card from "../components/Card";
 import styles from './BookList.module.css';
 
-const url = import.meta.env.VITE_API_URL;
-
 function BooksList() {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);  // nuovo stato per gestire gli errori
+    const [error, setError] = useState(null);
 
     // Funzione asincrona per recuperare i libri
     const fetchBooks = async () => {
         try {
-            const response = await axios.get(url);
-            console.log("Risposta API:", response.results);
+            const response = await axios.get('https://books-be-dc0t.onrender.com/books');
+            console.log("Risposta completa:", response.data);
 
-            // Controllo sicurezza: assicuro che sia un array
-            const booksData = response.data || response.data || [];
+            // Verifica se la risposta ha la proprietà 'results' o è già un array
+            const booksData = response.data.results || response.data || [];
+
+            // Controllo di sicurezza
             setBooks(Array.isArray(booksData) ? booksData : []);
         } catch (err) {
             console.error("Errore nel caricamento dei dati:", err);
