@@ -5,29 +5,32 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from "../components/Card";
-import styles from './BookList.module.css'
+import styles from './BookList.module.css';
+
+const url = import.meta.env.VITE_API_URL;
 
 function BooksList() {
-    // stato per i libri e per il caricamento
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);  // nuovo stato per gestire gli errori
 
-    // fn per recuperare i dati dal server
-    function fetchBooks() {
-        // effettuo una richiesta GET per ottenere i dati dal server
-        axios.get("http://localhost:3000/books")
-            .then((response) => {
-                // quando ottengo i dati, aggiorno lo stato dei libri
-                setBooks(response.data.results);
-                setLoading(false);
-            })
-            .catch((error) => {
-                // se c'è un errore, lo stampo sulla console
-                console.error("Errore nel caricamento dei dati:", error);
-            });
-    }
+    // Funzione asincrona per recuperare i libri
+    const fetchBooks = async () => {
+        try {
+            const response = await axios.get(url);
+            console.log("Risposta API:", response.results);
 
-    // lo uso per chiamare l'API al caricamento della pagina
+            // Controllo sicurezza: assicuro che sia un array
+            const booksData = response.data.results || response.data || [];
+            setBooks(Array.isArray(booksData) ? booksData : []);
+        } catch (err) {
+            console.error("Errore nel caricamento dei dati:", err);
+            setError("Errore nel caricamento dei libri.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
         fetchBooks();
     }, []);
@@ -50,34 +53,25 @@ function BooksList() {
         speed: 1000,
         slidesToShow: 4,
         slidesToScroll: 1,
-        autoplay: true, // Attiva lo scorrimento automatico
-        autoplaySpeed: 800, // Tempo tra una slide e l'altra (in ms)
-        cssEase: "ease-in-out", // Transizione più fluida
+        autoplay: true,
+        autoplaySpeed: 800,
+        cssEase: "ease-in-out",
         pauseOnHover: true,
         pauseOnFocus: true,
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
         responsive: [
             {
-                breakpoint: 992, // A 992px, mostra 3 cards
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                },
+                breakpoint: 992,
+                settings: { slidesToShow: 3, slidesToScroll: 1 },
             },
             {
-                breakpoint: 768, // A 768px, mostra 2 cards
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
+                breakpoint: 768,
+                settings: { slidesToShow: 2, slidesToScroll: 1 },
             },
             {
-                breakpoint: 576, // A 567px, mostra 1 card
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
+                breakpoint: 576,
+                settings: { slidesToShow: 1, slidesToScroll: 1 },
             },
         ],
     };
@@ -85,11 +79,14 @@ function BooksList() {
     return (
         <div className={styles.container}>
             <div className="font-bold px-5">
-                <strong> Our Library </strong>
+                <strong>Our Library</strong>
             </div>
-            {loading ? (
-                <p>Loading books...</p>
-            ) : (
+
+            {loading && <p>Loading books...</p>}
+
+            {error && <p>{error}</p>}
+
+            {!loading && !error && Array.isArray(books) && books.length > 0 ? (
                 <div className={`${styles.row} p-5`}>
                     <Slider {...settings}>
                         {books.map((book) => (
@@ -97,10 +94,11 @@ function BooksList() {
                         ))}
                     </Slider>
                 </div>
-            )}
+            ) : (!loading && !error && (
+                <p>No books found.</p>
+            ))}
         </div>
     );
 }
 
 export default BooksList;
-

@@ -10,7 +10,7 @@ import styles from "./BookDetails.module.css";
 export default function BookDetails() {
   const url = import.meta.env.VITE_API_URL;
   const endPoint = "books";
-  const imgUrl = "http://localhost:3000/images/";
+  const imgUrl = `${url}/images/;`
   const { id } = useParams(); // Otteniamo l'ID del libro dalla URL
 
   const [bookDetails, setBookDetails] = useState(null);
@@ -41,11 +41,17 @@ export default function BookDetails() {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
-        i <= Math.ceil(vote / 2) ? <FaStar key={i} /> : <FaRegStar key={i} />
+        getStar(vote, i)
       );
     }
     return stars;
   };
+  // fn che ritorna l'icona della stella corretta con parametro voto e indice
+  function getStar(vote, index) {
+    let star = index <= Math.ceil(vote / 2) ? <FaStar key={index} /> : <FaRegStar key={index} />
+    return star;
+  }
+
 
   // Funzione per scrollare alla sezione del form
   const scrollToReviewForm = () => {
