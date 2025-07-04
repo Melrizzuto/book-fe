@@ -21,7 +21,7 @@ function BooksList() {
             console.log("Risposta API:", response.results);
 
             // Controllo sicurezza: assicuro che sia un array
-            const booksData = response.data.results || response.data || [];
+            const booksData = response.data || response.data || [];
             setBooks(Array.isArray(booksData) ? booksData : []);
         } catch (err) {
             console.error("Errore nel caricamento dei dati:", err);
